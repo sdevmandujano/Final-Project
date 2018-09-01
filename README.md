@@ -23,8 +23,8 @@ Bonus:
 * Chat
 
 ## Sketch of final product:
-![Sketch](ReadMeFile/yell.jpg)
-![Sketch](ReadMeFile/body_page.jpg)
+![Sketch](yell/ReadMeFile/yell.jpg)
+![Sketch](/yell/ReadMeFile//body_page.jpg)
 
 
 ## API's to be used:
