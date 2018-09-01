@@ -24,8 +24,8 @@ Bonus:
 
 ## Sketch of final product:
 <p align="center">
-  <img src="/ReadMeFile/yell.jpg" width="350" title="hover text">
-  <img src="/ReadMeFile//body_page.jpg" width="350" alt="accessibility text">
+  <img src="ReadMeFile/yell.jpg" width="350" title="hover text">
+  <img src="ReadMeFile//body_page.jpg" width="350" alt="accessibility text">
 </p>
 
 
