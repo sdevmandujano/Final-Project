@@ -24,8 +24,8 @@ Bonus:
 
 ## Sketch of final product:
 <p align="center">
-  <img src="yell.jpg" width="350" title="hover text">
-  <img src="https://github.com/sdevmandujano/Final-Project/blob/master/ReadMeFile/body_page.png" width="350" alt="accessibility text">
+  <img src="https://github.com/sdevmandujano/Final-Project/blob/master/ReadMeFile/yell.png" width="350" >
+  <img src="https://github.com/sdevmandujano/Final-Project/blob/master/ReadMeFile/body_page.png" width="350" >
 </p>
 
 
