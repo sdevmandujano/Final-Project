@@ -1,4 +1,6 @@
 ### This repo contains the frontend for Yell project
+[Link to the backend](https://github.com/veritosvb/Final-Project-back/blob/master/README.md)
+
 ## Project Title: 
 # YELL.mx
 
