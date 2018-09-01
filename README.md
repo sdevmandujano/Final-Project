@@ -40,8 +40,8 @@ Bonus:
 >>>>>>> 9fba2a3ee839435a93b6f68235156039b213cbc4
 
 <p align="center">
-  <img src="./Final-Project/yell/ReadMeFile/yell.jpg" width="350" title="hover text">
-  <img src="./yell/ReadMeFile//body_page.jpg" width="350" alt="accessibility text">
+  <img src="/ReadMeFile/yell.jpg" width="350" title="hover text">
+  <img src="/ReadMeFile//body_page.jpg" width="350" alt="accessibility text">
 </p>
 >>>>>>> adb8124797da17dd35e8406a3df5e8279ceb02de
 
