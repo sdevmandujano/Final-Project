@@ -34,7 +34,7 @@ Bonus:
 - [ ] User Authentication: Vero
 - [ ] NavBar: Rodolfo
 - [ ] UserInfo: Patricio
-- [ ] Sam: Game list
+- [ ] Game list: Sam
 
 ## URL: 
 yell.mx
