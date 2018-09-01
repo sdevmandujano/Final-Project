@@ -29,6 +29,12 @@ Bonus:
 - [ ] Create mockup design
 - [ ] Database handling research (Login/SignUp)
 
+## Roles & Responsibilities:
+- [ ] Home Page: Elizabeth
+- [ ] User Authentication: Vero
+- [ ] NavBar: Rodolfo
+- [ ] UserInfo: Patricio
+- [ ] Sam: Game list
 
 ## URL: 
 yell.mx
