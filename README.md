@@ -23,11 +23,11 @@ Bonus:
 * Chat
 
 ## Sketch of final product:
-![Sketch](Final-Project/yell/ReadMeFile/yell.jpg)
-![Sketch](./yell/ReadMeFile//body_page.jpg)
+![Sketch](./Final-Project/yell/ReadMeFile/yell.jpg)
+![Sketch](Final-Project/yell/ReadMeFile//body_page.jpg)
 
 <p align="center">
-  <img src="./yell/ReadMeFile/yell.jpg" width="350" title="hover text">
+  <img src="./Final-Project/yell/ReadMeFile/yell.jpg" width="350" title="hover text">
   <img src="./yell/ReadMeFile//body_page.jpg" width="350" alt="accessibility text">
 </p>
 
