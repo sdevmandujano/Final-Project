@@ -23,7 +23,7 @@ Bonus:
 * Chat
 
 ## Sketch of final product:
-![Sketch](./yell/ReadMeFile/yell.jpg)
+![Sketch](Final-Project/yell/ReadMeFile/yell.jpg)
 ![Sketch](./yell/ReadMeFile//body_page.jpg)
 
 <p align="center">
