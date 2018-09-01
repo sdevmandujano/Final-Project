@@ -25,6 +25,7 @@ Bonus:
 ## Sketch of final product:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![Sketch](ReadMeFile/yell.jpg)
 ![Sketch](ReadMeFile/body_page.jpg)
 =======
@@ -33,9 +34,13 @@ Bonus:
 ![Sketch](Final-Project/yell/ReadMeFile/yell.jpg)
 >>>>>>> 90b9231e66ddd5f6729ec249d41da6342ac93719
 ![Sketch](./yell/ReadMeFile//body_page.jpg)
+=======
+![Sketch](./Final-Project/yell/ReadMeFile/yell.jpg)
+![Sketch](Final-Project/yell/ReadMeFile//body_page.jpg)
+>>>>>>> 9fba2a3ee839435a93b6f68235156039b213cbc4
 
 <p align="center">
-  <img src="./yell/ReadMeFile/yell.jpg" width="350" title="hover text">
+  <img src="./Final-Project/yell/ReadMeFile/yell.jpg" width="350" title="hover text">
   <img src="./yell/ReadMeFile//body_page.jpg" width="350" alt="accessibility text">
 </p>
 >>>>>>> adb8124797da17dd35e8406a3df5e8279ceb02de
