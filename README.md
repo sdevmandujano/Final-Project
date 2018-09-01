@@ -1,5 +1,6 @@
+# This repo contains the frontend for Yell project
 ## Project Title: 
-YELL.mx
+# YELL.mx
 
 ## Team Name: 
 Yell Team
