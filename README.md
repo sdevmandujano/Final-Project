@@ -24,10 +24,14 @@ Bonus:
 
 ## Sketch of final product:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![Sketch](ReadMeFile/yell.jpg)
 ![Sketch](ReadMeFile/body_page.jpg)
 =======
 ![Sketch](./yell/ReadMeFile/yell.jpg)
+=======
+![Sketch](Final-Project/yell/ReadMeFile/yell.jpg)
+>>>>>>> 90b9231e66ddd5f6729ec249d41da6342ac93719
 ![Sketch](./yell/ReadMeFile//body_page.jpg)
 
 <p align="center">
