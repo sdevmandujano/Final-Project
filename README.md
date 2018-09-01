@@ -23,7 +23,9 @@ Bonus:
 * Chat
 
 ## Sketch of final product:
-![Sketch](a516ec80-2f30-4693-bd8d-00bc77c9722e-1.jpg)
+![Sketch](./ReadMeFile/yell.jpg)
+![Sketch](./ReadMeFile/body_page.jpg)
+
 
 ## API's to be used:
 * Twitch API
