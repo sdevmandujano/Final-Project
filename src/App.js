@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import Nav from "./components/Nav";
-import Jumbotron from "./components/Jumbotron";
-import Games from "./components/Games";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Register from "./views/Register";
+import Landing from "./views/Landing";
+import NoMatch from "./views/NoMatch";
+import Selection from "./views/Selection";
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <Nav />
-      <Jumbotron>
-        <h3 className="jumbo-title">Live Games:</h3>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/mP36g8I_0GY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen />
-      </Jumbotron>
-<div className="container">
-      <Games />
-</div>
+      <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/user/:id" component={Selection} />
+          <Route component={NoMatch} />
+        </Switch>
       </div>
+    </Router>
     );
   }
 }

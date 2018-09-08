@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "material-kit-react": "^1.2.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+<<<<<<< HEAD
     "react-photo-gallery": "^6.2.1",
     "react-scripts": "1.1.5"
+=======
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.5",
+    "reactstrap": "^6.4.0"
+>>>>>>> 6eba19721c57edb80d0bdcda0472076caf6d1280
   },
   "scripts": {
     "start": "react-scripts start",
