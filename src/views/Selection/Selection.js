@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Nav from "./components/Nav";
-import Jumbotron from "./components/Jumbotron";
-import Games from "./components/Games";
+import Nav from "../../components/Nav";
+import Jumbotron from "../../components/Jumbotron";
+import Games from "../../components/Games";
 
 class Selection extends Component {
   state = {

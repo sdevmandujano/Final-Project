@@ -6,10 +6,9 @@
     "axios": "^0.18.0",
     "material-kit-react": "^1.2.0",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react-dom": "^16.5.0",
     "react-facebook-login": "^4.1.0",
     "react-photo-gallery": "^6.2.1",
-    "react-scripts": "1.1.5",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "reactstrap": "^6.4.0"
