@@ -4,8 +4,6 @@ import Register from "./views/Register";
 import Landing from "./views/Landing";
 import NoMatch from "./views/NoMatch";
 import Selection from "./views/Selection";
-//import Nav from "./components/Nav";
-
 import './App.css';
 
 class App extends Component {

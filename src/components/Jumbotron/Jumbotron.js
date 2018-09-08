@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+import React from 'react';
+
+const Jumbotron = ({ children }) => (
+<div className="jumbotron jumbotron-fluid">
+  {children}
+</div>
+);
+
+export default Jumbotron;
+=======
 import React from "react";
 
 const Jumbotron = ({ children }) => (
@@ -10,3 +21,4 @@ const Jumbotron = ({ children }) => (
 );
 
 export default Jumbotron;
+>>>>>>> 6eba19721c57edb80d0bdcda0472076caf6d1280
