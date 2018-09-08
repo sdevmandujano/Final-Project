@@ -1,6 +1,6 @@
 import React from "react";
 import Jumbotron from "../../components/Jumbotron"
-  
+import Facebook from '../../components/Facebook/Facebook'
 
 class Landing extends React.Component {
   render() {
@@ -9,23 +9,13 @@ class Landing extends React.Component {
       <div>
       <Jumbotron className="masthead">
       <div className="overlay"></div>
-      <div className="container">
-        <div className="row">
+      <div className="container">      
+          <div className="row">
           <div className="col-xl-9 mx-auto">
+            <img src="https://images.pexels.com/photos/929831/pexels-photo-929831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height="100" width="100"/>
             <h1 className="mb-5">Yell</h1>
           </div>
-          <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form>
-              <div className="form-row">
-                <div className="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="email" className="form-control form-control-lg" placeholder="Enter your email..."/>
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" className="btn btn-block btn-lg btn-primary">Entrar</button>
-                </div>
-              </div>
-            </form>
-          </div>
+          <Facebook />
         </div>
       </div>
       </Jumbotron>
