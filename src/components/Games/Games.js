@@ -1,10 +1,30 @@
 import React from "react";
 import Gallery from "react-photo-gallery";
+import ImageCard from "../ImageCard";
 
 export default class Games extends React.Component {
+  /* render() {
+     return <Gallery photos={PHOTO_SET} className="games"/>;
+   } */
   render() {
-    return <Gallery photos={PHOTO_SET} className="games"/>;
+    let i = 0;
+    return ( <div>
+
+      {PHOTO_SET.map(photo => (
+          <ImageCard
+            key={i++}
+            handleClick={this.handlePhotoClick}
+            image={photo.src}
+          />
+        ))
+      }
+      </div>)
   }
+  handlePhotoClick = (event) => {
+    console.log(event);
+
+  }
+
 }
 const PHOTO_SET = [
   {
@@ -12,6 +32,8 @@ const PHOTO_SET = [
       "https://healthnewshub.org/wp-content/uploads/2018/03/NewsFortnite-452x452.jpg",
     width: 1,
     height: 1
+
+
   },
   {
     src:
