@@ -1,24 +1,40 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Register from "./views/Register";
+import Dashboard from "./layouts/Dashboard/Dashboard";
+import Facebook from './components/Facebook/Facebook'
 import Landing from "./views/Landing";
-import NoMatch from "./views/NoMatch";
-import Selection from "./views/Selection";
-import './App.css';
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+
+import "./assets/css/animate.min.css";
+import "./assets/sass/light-bootstrap-dashboard.css?v=1.2.0";
+import "./assets/css/demo.css";
+import "./assets/css/pe-icon-7-stroke.css";
+
+import indexRoutes from "./routes/index"
 
 class App extends Component {
+  state = {
+    isLoggedIn:true
+  }
   render() {
     return (
       <Router>
-      <div>
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/user/:id" component={Selection} />
-          <Route component={NoMatch} />
-        </Switch>
+      <div className="App">
+          <Switch>
+            {indexRoutes.map((prop, key) => {
+              if (prop.name === "User")
+                return (
+                  <Route 
+                    path={prop.path}
+                    key={key}
+                    render={(props) => this.state.isLoggedIn ? (<Dashboard {...props}/>) : (<Redirect to="/"/>)}/>
+                );
+              return (
+                <Route exact strict path="/" component={Landing}/>
+                );
+            })}
+          </Switch>
       </div>
-    </Router>
+      </Router>
     );
   }
 }

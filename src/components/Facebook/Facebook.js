@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
+import dashboardRoutes from "../../routes/dashboard.jsx";
+
 
 export default class Facebook extends Component {
     //initial state
     state = {
-        isLoggedIn: false,
+        isLoggedIn: true,
         userID: '',
         name: '',
         email: '',

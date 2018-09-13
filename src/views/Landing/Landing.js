@@ -19,7 +19,7 @@ class Landing extends React.Component {
         </div>
       </div>
       </Jumbotron>
-      
+
       <section className="features-icons bg-light text-center">
       <div className="container">
         <div className="row">
