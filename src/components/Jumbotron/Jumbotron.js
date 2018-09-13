@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Jumbotron = ({ children }) => (
-<div className="jumbotron jumbotron-fluid">
+<div >
   {children}
 </div>
 );
