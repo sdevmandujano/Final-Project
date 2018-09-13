@@ -2,19 +2,16 @@ import React from "react";
 import logo from '../Nav/yell-logo.png';
 import icon from '../Nav/rodolfo.jpg';
 import background from '../Nav/background.jpg';
-import sidenav from '../Nav/hexabump_@2X.png';
-import halo from '../Nav/halo5.jpg';
-import fortnite from '../Nav/fortnite.png';
-import lol from '../Nav/lol.png';
-import overwatch from '../Nav/overwatch.jpg';
-import pubg from '../Nav/pubg.jpg';
 
-const Nav = () => (
+const Nav = props => (
 
 <div className="menu">
 
 <nav className="navbar" style={ {backgroundImage: `url(${background})`}}>
     <img src={logo} id="yell-logo" alt="yell-logo"/>
+
+    {/* <a href="#" id="open-nav" onClick={() => props.handlePageChange("open")} 
+        className={props.currentNav === "open"}><i className="far fa-caret-square-right" id="fa-caret-square-right" data-toggle="tooltip" data-placement="top" title="Click to expand"/></a> */}
 
     <div className="options">
     
@@ -76,26 +73,6 @@ const Nav = () => (
     </a>
 
     </div>
-</nav>
-
-<nav className="sideNav" style={ {backgroundImage: `url(${sidenav})`, color: 'red', fontSize: '20px'}}>
-        <a href="#"><i className="far fa-caret-square-right" data-toggle="tooltip" data-placement="top" title="Click to expand"/></a>
-        <hr />
-        <i className="fas fa-heart" data-toggle="tooltip" data-placement="top" title="My Games"/>
-        <hr />
-
-        <div className="my-games-menu">
-        
-        <img src={halo} alt="my games" className="my-games" data-toggle="tooltip" data-placement="top" title="Halo 5"/>
-
-        <img src={fortnite} alt="my games" className="my-games"data-toggle="tooltip" data-placement="top" title="Fortnite"/>
-
-        <img src={lol} alt="my games" className="my-games" data-toggle="tooltip" data-placement="top" title="League of Legends"/>
-
-        <img src={overwatch} alt="my games" className="my-games" data-toggle="tooltip" data-placement="top" title="Overwatch"/>
-
-        <img src={pubg} alt="my games" className="my-games" data-toggle="tooltip" data-placement="top" title="Player Unknown Battlegrounds"/>
-        </div>
 
 </nav>
 </div>

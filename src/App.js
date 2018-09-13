@@ -4,6 +4,7 @@ import Register from "./views/Register";
 import Landing from "./views/Landing";
 import NoMatch from "./views/NoMatch";
 import Selection from "./views/Selection";
+import Game from "./views/GamePage";
 import './App.css';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/user/:id" component={Selection} />
+          <Route exact path="/games" component={Game} />
           <Route component={NoMatch} />
         </Switch>
       </div>
