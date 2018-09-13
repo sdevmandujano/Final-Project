@@ -9,7 +9,6 @@ class Landing extends React.Component {
  
     return (
       <div>
-        
         <div style ={{
                     width: '100',
                     height:'50',
@@ -35,7 +34,7 @@ class Landing extends React.Component {
           </Jumbotron>
         </div>
       <section className="features-icons bg-light text-center">
-      <div className="container">
+      <div className="container m-3">
         <div className="row">
           <div className="col-lg-4">
             <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
