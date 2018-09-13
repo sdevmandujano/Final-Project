@@ -1,25 +1,39 @@
 import React from "react";
 import Jumbotron from "../../components/Jumbotron"
 import Facebook from '../../components/Facebook/Facebook'
+//import landing from '../Landing/landing.css'
+import Yell_Logo from '../../assets/img/Yell_Logo.png'
 
 class Landing extends React.Component {
   render() {
  
     return (
       <div>
-      <Jumbotron className="masthead">
-      <div className="overlay"></div>
-      <div className="container">      
-          <div className="row">
-          <div className="col-xl-9 mx-auto">
-            <img src="https://images.pexels.com/photos/929831/pexels-photo-929831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height="100" width="100"/>
-            <h1 className="mb-5">Yell</h1>
-          </div>
-          <Facebook />
+        
+        <div style ={{
+                    width: '100',
+                    height:'50',
+                    margin:'auto',
+                    marginRight:'20px',
+                    marginLeft:'20px',
+                    padding: '250px',
+                    borderBottomLeftRadius:'20px',
+                    borderBottomRightRadius:'20px',
+                    backgroundImage:'url("https://images.pexels.com/photos/929831/pexels-photo-929831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',
+          }}>
+                
+          <Jumbotron className="masthead">
+            <div className="overlay"></div>
+            <div className="container text-center">      
+              <div className="row">
+                <div className="col-xl-9 mx-auto">
+                  <Facebook />
+                  <img src={Yell_Logo}></img>
+                </div>
+              </div>
+            </div>
+          </Jumbotron>
         </div>
-      </div>
-      </Jumbotron>
-
       <section className="features-icons bg-light text-center">
       <div className="container">
         <div className="row">

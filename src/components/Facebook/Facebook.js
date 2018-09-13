@@ -31,11 +31,15 @@ export default class Facebook extends Component {
         if (this.state.isLoggedIn) {
             fbContent= (
                 <div style ={{
-                    width: '400px',
+                    width: '100px',
                     margin:'auto',
+                    borderTopLeftRadius:'30px',
+                    borderTopRightRadius:'20px',
                     background: '#f4f4f4',
-                    padding: '20px'
+                    padding: '20px',
+                    alignContent: 'right'
                 }}>
+
                 <img src={this.state.picture} alt={this.state.name}/>
                 <h2>Welcome {this.state.name}</h2>
                 </div>

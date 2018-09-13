@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import Jumbotron from "../../components/Jumbotron";
-import Games from "../../components/Games";
+import GamePage from "../../components/GamePage";
 import ClosedNav from "../../components/closedNav/closedNav";
 import OpenNav from "../../components/openedNav/openedNav";
 
-class Selection extends Component {
+class Game extends Component {
   state = {
     currentNav: "closed"
   };
@@ -37,11 +37,11 @@ class Selection extends Component {
       <iframe width="560" height="315" src="https://www.youtube.com/embed/mP36g8I_0GY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen />
       </Jumbotron>
 <div className="container">
-      <Games />
+      <GamePage />
 </div>
 </div>
     ) 
   }
 }
 
-export default Selection;
+export default Game;
