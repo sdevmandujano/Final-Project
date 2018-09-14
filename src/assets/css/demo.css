@@ -23,7 +23,7 @@
     width: 100%;
     text-align: center;
     display: block;
-    color: #aaa;
+    color: whitesmoke;
     font-size: 13px;
 }
 
@@ -36,16 +36,7 @@
 .places-buttons .btn{
     margin-bottom: 30px
 }
-.sidebar .nav > li.active-pro{
-    position: absolute;
-    width: 100%;
-    bottom: 10px;
-}
-.sidebar .nav > li.active-pro a{
-    background: rgba(255, 255, 255, 0.14);
-    opacity: 1;
-    color: #FFFFFF;
-}
+
 
 .table-upgrade td:nth-child(2),
 .table-upgrade td:nth-child(3){

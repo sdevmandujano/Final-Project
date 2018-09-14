@@ -12,7 +12,7 @@ var style = {
     DefaultStyle: {
       position: "fixed",
       width: defaultWidth,
-      padding: "10px 10px 10px 20px",
+      padding: "20px 20px 20px 20px",
       zIndex: 9998,
       WebkitBoxSizing: "",
       MozBoxSizing: "",
@@ -80,7 +80,7 @@ var style = {
       borderRadius: "4px",
       fontSize: "14px",
       margin: "10px 0 0",
-      padding: "10px",
+      padding: "20px",
       display: "block",
       WebkitBoxSizing: "border-box",
       MozBoxSizing: "border-box",

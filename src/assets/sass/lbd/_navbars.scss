@@ -85,7 +85,7 @@
     
         &:focus,
         &:hover{
-            background-color: transparent;
+            
             @include opacity(1);
         }
     }
@@ -101,14 +101,11 @@
         > .active > a:focus:not(.btn),
         > li > a:hover:not(.btn),
         > li > a:focus:not(.btn){
-            background-color: transparent;
             border-radius: 3px;
             color: $white-color;
             @include opacity(1);
         }
-        .nav > li > a.btn:hover{
-            background-color: transparent;
-        }
+    
         
         > .dropdown > a .caret,
         > .dropdown > a:hover .caret,
@@ -222,7 +219,7 @@
         }
         
         [class^="pe"] {
-            font-size: 30px;
+            font-size: 67px;
             position: relative;
         }
         p {

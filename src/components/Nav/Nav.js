@@ -8,7 +8,7 @@ import  './Nav.css';
 const Nav = props => (
 
 <div className="menu">
-<nav className="navbar">
+<nav className="navbar" style={ {backgroundImage: `url(${background})`}}>
 
     {/* <a href="#" id="open-nav" onClick={() => props.handlePageChange("open")} 
         className={props.currentNav === "open"}><i className="far fa-caret-square-right" id="fa-caret-square-right" data-toggle="tooltip" data-placement="top" title="Click to expand"/></a> */}

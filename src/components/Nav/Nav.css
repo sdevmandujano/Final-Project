@@ -16,29 +16,29 @@
   top: 25%;
   }
   
-  .menucategories {
+  .navbar .menucategories {
     position: absolute;
     left: 12%; 
     top: 27%;
   }
   
-  .fa-gamepad {
+  .navbar .fa-gamepad {
     font-size: 30px;
     margin-right: -25px;
   }
   
-  .menufriends {
+  .navbar .menufriends {
     position: absolute;
     left: 51%; 
     top: 29%;
   }
   
-  .fa-user-friends {
+  .navbar .fa-user-friends {
     font-size: 30px;
     margin-right: -25px;
   }
   
-  .menuteams {
+  .navbar .menuteams {
     position: absolute;
     right: 28%; 
     top: 29%;
@@ -134,11 +134,11 @@
   }
   
   /* GAME PAGE */
-  h3 {
+  .my-games h3 {
     text-align: left;
   }
   
-  .hr-game {
+  .my-games .hr-game {
     background: blue;
   }
   

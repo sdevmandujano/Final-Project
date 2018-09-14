@@ -114,7 +114,7 @@
         display: block;
         top: 0;
         height: 100%;
-        width: 260px;
+        width: 160px;
         right: 0;
         left: auto;
         z-index: 1032;
@@ -157,7 +157,7 @@
                 & > li > a:hover,
                 & > li > a:focus{
 
-                    color: white;
+                    color: purple;
                 }
             }
 
@@ -170,8 +170,7 @@
                         margin: 0;
                         line-height: 30px;
                         font-size: 12px;
-                        font-weight: 600;
-                        text-transform: uppercase;
+                        font-weight: 500;
                         margin: 5px 15px;
                     }
                 }
@@ -215,7 +214,6 @@
     .navbar-toggle .icon-bar {
           display: block;
           position: relative;
-          background: #fff;
           width: 24px;
           height: 2px;
           border-radius: 1px;
