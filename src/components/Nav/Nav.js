@@ -2,11 +2,12 @@ import React from "react";
 import logo from '../Nav/yell-logo.png';
 import icon from '../Nav/rodolfo.jpg';
 import background from '../Nav/background.jpg';
+import  './Nav.css';
+
 
 const Nav = props => (
 
 <div className="menu">
-
 <nav className="navbar" style={ {backgroundImage: `url(${background})`}}>
     <img src={logo} id="yell-logo" alt="yell-logo"/>
 

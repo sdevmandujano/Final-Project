@@ -31,8 +31,6 @@ class Selection extends Component {
   render() {
     return (
       <div className="App">
-      <Nav />
-      {this.renderPage()}
       <Jumbotron>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/mP36g8I_0GY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen />
       </Jumbotron>

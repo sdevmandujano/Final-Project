@@ -2,9 +2,9 @@ import Dashboard from "../views/Dashboard/Dashboard";
 import UserProfile from "../views/UserProfile/UserProfile";
 import TableList from "../views/TableList/TableList";
 import Notifications from "../views/Notifications/Notifications";
-import Upgrade from "../views/Upgrade/Upgrade";
 import Selection from "../views/Selection";
 import Landing from "../views/Landing";
+import Games from "../components/Games";
 
 const dashboardRoutes = [
   {
@@ -14,14 +14,14 @@ const dashboardRoutes = [
     component: UserProfile
   },
   {
-    path: "/user/juegos",
-    name: "Juegos",
+    path: "/user/equipos",
+    name: "Equipos",
     icon: "pe-7s-user",
     component: Selection
   },
   {
     path: "/user/top",
-    name: "Amigos",
+    name: "Puntaje",
     icon: "pe-7s-note2",
     component: TableList
   },
@@ -31,6 +31,12 @@ const dashboardRoutes = [
     icon: "pe-7s-bell",
     component: Notifications
   },
+  {
+    path: "/user/juegos",
+    name: "Juegos",
+    icon: "pe-7s-note2",
+    component: Games
+  }
 ];
 
 export default dashboardRoutes;
