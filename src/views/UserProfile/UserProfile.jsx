@@ -12,9 +12,8 @@ import { Card } from "../../components/Card/Card.jsx";
 import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
 import { UserCard } from "../../components/UserCard/UserCard.jsx";
 import Button from "../../components/CustomButton/CustomButton.jsx";
-import Nav from "../../components/Nav";
 
-import avatar from "../../assets/img/faces/face-3.jpg";
+import avatar from "../../assets/img/rodolfo.jpg";
 import imagen from "../../assets/img/sidebarback.jpg";
 
 
@@ -103,7 +102,7 @@ class UserProfile extends Component {
               <UserCard
                 bgImage={imagen}
                 avatar={avatar}
-                name="Mike Andrew"
+                name="Rodolfo Resines"
                 userName="yellWashawasha"
                 description={
                   <span>

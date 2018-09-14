@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import HeaderLinks from "../Header/HeaderLinks.jsx";
-import imagine from "../../assets/img/reactlogo.png";
-import logo from "../../assets/img/reactlogo.png";
+import imagine from "../../assets/img/background.png";
+import logo from "../../assets/img/yell-logo.png";
 import dashboardRoutes from "../../routes/dashboard.jsx";
 
 class Sidebar extends Component {
@@ -47,12 +47,12 @@ class Sidebar extends Component {
             href="#"
             className="simple-text logo-normal"
           >
-            / YELL
+          ....
           </a>
         </div>
         <div className="sidebar-wrapper">
           <ul className="nav">
-            {this.state.width <= 991 ? <HeaderLinks /> : null}
+       
             {dashboardRoutes.map((prop, key) => {
               if (!prop.redirect)
                 return (

@@ -56,7 +56,7 @@ class Header extends Component {
   }
   render() {
     return (
-      <Navbar fluid>
+      <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#pablo">{this.getBrand()}</a>

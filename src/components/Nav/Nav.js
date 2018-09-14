@@ -1,15 +1,14 @@
 import React from "react";
-import logo from '../Nav/yell-logo.png';
-import icon from '../Nav/rodolfo.jpg';
-import background from '../Nav/background.jpg';
+import logo from '../../assets/img/yell-logo.png';
+import icon from '../../assets/img/rodolfo.jpg';
+import background from '../../assets/img/background.png';
 import  './Nav.css';
 
 
 const Nav = props => (
 
 <div className="menu">
-<nav className="navbar" style={ {backgroundImage: `url(${background})`}}>
-    <img src={logo} id="yell-logo" alt="yell-logo"/>
+<nav className="navbar">
 
     {/* <a href="#" id="open-nav" onClick={() => props.handlePageChange("open")} 
         className={props.currentNav === "open"}><i className="far fa-caret-square-right" id="fa-caret-square-right" data-toggle="tooltip" data-placement="top" title="Click to expand"/></a> */}
@@ -30,8 +29,8 @@ const Nav = props => (
     </a>
 
     <div className="form-inline my-2 my-lg-0" id="search-bar">
-    <input className="form-control mr-sm-2" type="search" placeholder="Search Game" aria-label="Search Game" />
-    <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <input className="form-control mr-sm-2" type="search" placeholder="Search Game" aria-label="Search Game" />
+        <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </div>
 
     <a href="#">
@@ -72,9 +71,7 @@ const Nav = props => (
     <h3 className="profile-name">Alfawarrior</h3>
     </div>
     </a>
-
     </div>
-
 </nav>
 </div>
 );

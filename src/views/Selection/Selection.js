@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Nav from "../../components/Nav";
 import Jumbotron from "../../components/Jumbotron";
 import Games from "../../components/Games";
-import ClosedNav from "../../components/closedNav/closedNav";
-import OpenNav from "../../components/openedNav/openedNav";
 
 class Selection extends Component {
   state = {
@@ -15,17 +13,7 @@ class Selection extends Component {
   };
 
   renderPage =() => {
-    if (this.state.currentNav === "closed") {
-      return <ClosedNav 
-      currentNav={this.state.currentNav}
-      handlePageChange={this.handlePageChange}
-      />;
-    } else {
-      return <OpenNav 
-      currentNav={this.state.currentNav}
-      handlePageChange={this.handlePageChange}
-      /> 
-    }
+
   };
 
   render() {
