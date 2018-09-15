@@ -1,9 +1,8 @@
-import Dashboard from "../views/Dashboard/Dashboard";
 import UserProfile from "../views/UserProfile/UserProfile";
 import TableList from "../views/TableList/TableList";
 import Notifications from "../views/Notifications/Notifications";
 import Selection from "../views/Selection";
-import Landing from "../views/Landing";
+import GamePage from "../components/GamePage";
 import Games from "../components/Games";
 import userIcon from  "../assets/img/userLogo.svg";
 
@@ -37,6 +36,10 @@ const dashboardRoutes = [
     name: "Busqueda",
     icon: "pe-7s-search",
     component: Games
+  },
+  {
+    path: "/user/juegos/:id",
+    component: GamePage
   }
 ];
 
