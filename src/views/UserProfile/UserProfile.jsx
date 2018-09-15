@@ -7,6 +7,7 @@ import {
   ControlLabel,
   FormControl
 } from "react-bootstrap";
+import Multiselect from 'react-widgets/lib/Multiselect'
 
 import { Card } from "../../components/Card/Card.jsx";
 import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
@@ -15,10 +16,12 @@ import Button from "../../components/CustomButton/CustomButton.jsx";
 
 import avatar from "../../assets/img/rodolfo.jpg";
 import imagen from "../../assets/img/sidebarback.jpg";
-
+import 'react-widgets/dist/css/react-widgets.css';
 
 class UserProfile extends Component {
   render() {
+    let gamesOptions = ['orange', 'red', 'blue', 'purple'];
+
     return (
       <div className="content">
         <Grid fluid>
@@ -75,6 +78,14 @@ class UserProfile extends Component {
                         
                       ]}
                     />
+                    <Row>
+                      <Col md={12}>
+                      <div controlId="formControlsCombo">
+                          <ControlLabel>SELECCIONA LOS JUEGOS A ENCONTRAR EQUIPO</ControlLabel>
+                          <Multiselect textField="name" data={gamesOptions}/>
+                        </div>
+                      </Col>
+                    </Row>
 
                     <Row>
                       <Col md={12}>
@@ -116,7 +127,7 @@ class UserProfile extends Component {
                 socials={
                   <div>
                     <Button simple>
-                      <i className="fa fa-facebook-square" />
+                      <i className="fa fa-facebook" />
                     </Button>
                     <Button simple>
                       <i className="fa fa-twitter" />
