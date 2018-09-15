@@ -13,44 +13,34 @@ import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
 import Button from "../../components/CustomButton/CustomButton.jsx";
 import 'react-widgets/dist/css/react-widgets.css';
 
-class CreateTeam extends Component {
+class AddRating extends Component {
     render() {
         return (
-<div className="content">
-<Card
-title="Crea Tu Equipo"
-content={
-    <form>
-        <FormInputs
-        properties={
-            {
-                label: "Nombre",
-                type: "text",
-                bsClass: "form-control",
-                placeholder: "Los Destructores de Azeroth"
-            }
-        }
-        />
+            <div className="content">
+            <Card
+            title="Califica al Jugador"
+            content={
+                <form>
+                    <FormInputs
+                    properties={
+                        {
+                            label: "Calificación del 1 al 5",
+                            type: "number",
+                            bsClass: "form-control",
+                            placeholder: "Puntaje del 1 al 5"
+                        }
+                    }
+                    />
         <FormGroup controlId="formControlsTextarea">
-        <ControlLabel>Equipo</ControlLabel>
+        <ControlLabel>Comentarios sobre el Jugador</ControlLabel>
                 <FormControl
-                rows="2"
+                rows="5"
                 componentClass="textarea"
                 bsClass="form-control"
-                placeholder="Propósito del Equipo"
-                defaultValue="Mejorar en Raids"
+                placeholder="Comenta sobre tu experiencia con este jugador"
+                defaultValue="Buen teamate"
                 />
         </FormGroup>
-        <FormInputs
-        properties={
-            {
-                label: "Invitar Miembros",
-                type: "text",
-                bsClass: "form-control",
-                placeholder: "Alfawarrior"
-            }
-        }
-        />
         <Grid>
             <Row>
                 <Col md={6}>
@@ -61,17 +51,17 @@ content={
 
                 <Col md={6}>
                 <Button bsStyle="info" pullRight fill type="submit">
-                      Crear
+                      Agregar Opinión
                 </Button>
                 </Col>
             </Row>
         </Grid>
-    </form>
-}
-/>
-</div>
+                </form>
+            }
+            />
+            </div>
         );
     }
 }
 
-export default CreateTeam;
+export default AddRating

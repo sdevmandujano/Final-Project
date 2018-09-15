@@ -5,6 +5,8 @@ import Selection from "../views/Selection";
 import GamePage from "../components/GamePage";
 import Games from "../components/Games";
 import userIcon from  "../assets/img/userLogo.svg";
+import Teams from "../views/Teams/Teams";
+import CreateTeam from "../views/CreateTeam/CreateTeam";
 
 const dashboardRoutes = [
   {
@@ -17,7 +19,7 @@ const dashboardRoutes = [
     path: "/user/equipos",
     name: "Equipos",
     icon: "pe-7s-users",
-    component: Selection
+    component: Teams
   },
   {
     path: "/user/top",
