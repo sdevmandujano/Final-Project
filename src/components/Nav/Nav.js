@@ -1,79 +1,61 @@
-import React from "react";
-import logo from '../../assets/img/yell-logo.png';
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import ReactDOM, {render} from 'react-dom';
 import icon from '../../assets/img/rodolfo.jpg';
 import background from '../../assets/img/background.png';
 import  './Nav.css';
+import NavbarToggle from 'react-bootstrap/lib/NavbarToggle';
+import NavDropdown from 'react-bootstrap/lib/NavDropdown';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
 
 
-const Nav = props => (
+  class Nav extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        width: window.innerWidth
+      };
+    }
 
-<div className="menu">
-<nav className="navbar" style={ {backgroundImage: `url(${background})`}}>
+    state = {
+      isOpen: false
+    }
 
-    {/* <a href="#" id="open-nav" onClick={() => props.handlePageChange("open")} 
-        className={props.currentNav === "open"}><i className="far fa-caret-square-right" id="fa-caret-square-right" data-toggle="tooltip" data-placement="top" title="Click to expand"/></a> */}
+    toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
 
-    <div className="options">
-    
-    <a href="#">
-    <div className="menucategories">
-    <div className="row">
-    <div className="col">
-    <i className="fas fa-gamepad" style={{color: 'red'}}/>
-    </div>
-    <div className="col">
-    <h3>Games</h3>
-    </div>
-    </div>
-    </div>
-    </a>
+    render() {
+      const menuClass = `dropdown-menu${this.state.isOpen ? " open" : ""}`;
 
-    <div className="form-inline my-2 my-lg-0" id="search-bar">
-        <input className="form-control mr-sm-2" type="search" placeholder="Search Game" aria-label="Search Game" />
-        <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-    </div>
+    return (
 
-    <a href="#">
-    <div className="menufriends">
-    <div className="row">
-    <div className="col">
-    <i className="fas fa-user-friends" style={{color: 'red'}}/>
-    </div>
-    <div className="col">
-    <h3>Friends</h3>
-    </div>
-    </div>
-    </div>
-    </a>
-
-    <a href="#">
-    <div className="menuteams">
-    <div className="row">
-    <div className="col">
-    <i className="fab fa-teamspeak" style={{color: 'red'}}/>
-    </div>
-    <div className="col">
-    <h3>Teams</h3>
-    </div>
-    </div>
-    </div>
-    </a>
-
-    <a href="#">
-    <div className="menuinbox" data-toggle="tooltip" data-placement="bottom" title="Messages">
-    <i className="far fa-envelope" />
-    </div>
-    </a>     
-    
-    <a href="#">
-    <div className="menuaccount" data-toggle="tooltip" data-placement="bottom" title="My Account Settings">
-    <img src={icon} alt="profile-pic" id="profile-icon" />
-    <h3 className="profile-name">Alfawarrior</h3>
-    </div>
-    </a>
-    </div>
+<nav className="navbar navbar-expand-lg text-light" style={ {backgroundImage: `url(${background})`}}>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <form className="form-inline my-2 my-lg-0">
+        <input className="form-control mr-sm-2" type="search" placeholder="Buscar Juego" aria-label="Search"/>
+        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item">
+      <a className="nav-link" href="#"><i className="fas fa-gamepad" style={{color: 'red'}}/>Juegos</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#"><i className="fab fa-teamspeak" style={{color: 'red'}}/>Equipos</a>
+      </li>
+      <li className="nav-item">
+      <NavDropdown eventKey={3} title=" Amigos" className="fab fa-teamspeak pt-4" id="navbarDropdown">
+          <MenuItem eventKey={3.1}>Enviar Mensaje</MenuItem>
+          <MenuItem eventKey={3.2}>Califica</MenuItem>
+        </NavDropdown>
+        </li>
+    </ul>
+    <a className="navbar-brand m-auto" href="#">Alfawarrior</a><img className="p-1" src={icon} alt="profile-pic" id="profile-icon" />
+  </div>
 </nav>
-</div>
 );
+  }
+}
 
 export default Nav;
