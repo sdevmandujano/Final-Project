@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import NotificationSystem from "react-notification-system";
 
-import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Nav from "../../components/Nav";
