@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import {
     Grid,
     Row,
-    Col
+    Col,
+    Panel
 } from "react-bootstrap";
+import Button from "../../components/CustomButton/CustomButton.jsx";
 import avatar from "../../assets/img/rodolfo.jpg";
+import 'react-widgets/dist/css/react-widgets.css';
 
 export class TeamTable extends Component {
     constructor(props, context) {
@@ -27,27 +30,27 @@ export class TeamTable extends Component {
               <Panel.Body>
 <Grid>
     <Row>
-        <Col>
+        <Col md={4}>
         <img src={avatar} alt="avatar" />
         </Col>
 
-        <Col>
+        <Col md={2}>
         Gamer Tag
         </Col>
 
-        <Col>
+        <Col md={2}>
         <Button simple>
         Calificar Jugador
         </Button>
         </Col>
 
-        <Col>
+        <Col md={2}>
         <Button simple>
         Chat
         </Button>
         </Col>
 
-        <Col>
+        <Col md={2}>
         <Button simple>
         Echar del Equipo
         </Button>
