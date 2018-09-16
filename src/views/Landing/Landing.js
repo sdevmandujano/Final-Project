@@ -29,6 +29,8 @@ class Landing extends React.Component {
                 <div className="col-sm-10 col-md-5 col-lg-6 mx-auto">
                   <div className="align-left">
                     <img src={Yell_Logo} width="100%" height="100%"></img>
+                    <h3 className="subtitle"><strong>Deja el juego atras y conviertete en un jugador profesional de esports. Únete al beta.
+                    </strong></h3>
                   </div>
                 </div>
                 <div className="col-sm-7 col-md-8 col-lg-5 mx-auto">
