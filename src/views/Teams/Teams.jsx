@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { TeamTable } from "../../components/TeamTable/TeamTable.jsx";
 import {
     Grid,
-    Row
+    Row,
+    Col
 } from "react-bootstrap";
 import Button from "../../components/CustomButton/CustomButton.jsx";
 
@@ -11,19 +12,19 @@ class Teams extends Component {
         return (
 <div className="content">
 <Grid fluid>
-<Row>
-<Button bsStyle="info" pullRight fill type="submit">
-            Crear Equipo
-</Button>
-</Row>
+        <Row>
+            <Col>
+                <Button bsStyle="info" pullRight fill type="submit">
+                    Crear Equipo
+                </Button>
+            </Col>
+        </Row>
 
-<Row>
-
- <TeamTable />
-
-  <TeamTable />
-
-</Row>
+    <Row>   
+        <Col>
+            <TeamTable />
+         </Col>
+    </Row>
 </Grid>
 </div>
         );

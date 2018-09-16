@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import NotificationSystem from "react-notification-system";
+import { style } from "../../variables/Variables.jsx";
 import {
   Grid,
   Row,
@@ -8,22 +10,59 @@ import {
   FormControl
 } from "react-bootstrap";
 import Multiselect from 'react-widgets/lib/Multiselect'
-
 import { Card } from "../../components/Card/Card.jsx";
 import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
 import { UserCard } from "../../components/UserCard/UserCard.jsx";
 import Button from "../../components/CustomButton/CustomButton.jsx";
-
-import avatar from "../../assets/img/rodolfo.jpg";
-import imagen from "../../assets/img/sidebarback.jpg";
 import 'react-widgets/dist/css/react-widgets.css';
 
 class UserProfile extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      preview: null,
+      isOpen: false ,
+        score: 0,
+        topScore: 0,
+        guessed:"",
+        message: "Click an image to begin!",
+        frie:"",
+        _notificationSystem: null
+
+      }
+  }
+  
+  sendToStorage = () =>{
+    console.log("click"); 
+    this.setState({ _notificationSystem: this.refs.notificationSystem });
+    var _notificationSystem = this.refs.notificationSystem;
+    _notificationSystem.addNotification({
+      title: <span data-notify="icon" className="pe-7s-gift" />,
+      message: (
+        <div>
+          Usuario <b>/Yell</b> Actualizado.
+        </div>
+      ),
+      level: "warning",
+      position: "bc",
+      autoDismiss: 15
+    });   
+  }
+
+  toggleModal = (event) => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
   render() {
+
     let gamesOptions = ['orange', 'red', 'blue', 'purple'];
+    
 
     return (
       <div className="content">
+      <NotificationSystem ref="notificationSystem" style={style} />
         <Grid fluid>
           <Row>
             <Col md={8}>
@@ -32,7 +71,7 @@ class UserProfile extends Component {
                 content={
                   <form>
                     <FormInputs
-                      ncols={["col-md-5", "col-md-5"]}
+                      ncols={["username col-md-5", "col-md-5"]}
                       proprieties={[
                         {
                           label: "Nombre de Usuario",
@@ -101,7 +140,7 @@ class UserProfile extends Component {
                         </FormGroup>
                       </Col>
                     </Row>
-                    <Button bsStyle="info" pullRight fill type="submit">
+                    <Button bsStyle="danger" onClick={this.sendToStorage} pullRight fill>
                       Actualizar
                     </Button>
                     <div className="clearfix" />
@@ -110,34 +149,14 @@ class UserProfile extends Component {
               />
             </Col>
             <Col md={4}>
-              <UserCard
-                bgImage={imagen}
-                avatar={avatar}
-                name="Rodolfo Resines"
-                userName="yellWashawasha"
-                description={
-                  <span>
-                    Twitch
-                    <br />
-                    Steam
-                    <br />
-                    Calificacion
-                  </span>
+            <Card
+                title="Avatar"
+                content={
+                  <img src={this.state.preview} alt="Preview" />
+                  
+                
                 }
-                socials={
-                  <div>
-                    <Button simple>
-                      <i className="fa fa-facebook" />
-                    </Button>
-                    <Button simple>
-                      <i className="fa fa-twitter" />
-                    </Button>
-                    <Button simple>
-                      <i className="fa fa-google-plus-square" />
-                    </Button>
-                  </div>
-                }
-              />
+                />
             </Col>
           </Row>
         </Grid>

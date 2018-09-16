@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import HeaderLinks from "../Header/HeaderLinks.jsx";
 import imagine from "../../assets/img/background.png";
 import logo from "../../assets/img/yell-logo.png";
 import dashboardRoutes from "../../routes/dashboard.jsx";

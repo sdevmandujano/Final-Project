@@ -29,7 +29,7 @@ class App extends Component {
                     render={(props) => this.state.isLoggedIn ? (<Dashboard {...props}/>) : (<Redirect to="/"/>)}/>
                 );
               return (
-                <Route exact strict path="/" component={Landing}/>
+                <Route  key={key} exact strict path="/" component={Landing}/>
                 );
             })}
           </Switch>

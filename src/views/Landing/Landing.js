@@ -11,7 +11,7 @@ class Landing extends React.Component {
       <div>
         <div style ={{
                     width: '70',
-                    height:'50',
+                    height:'100%',
                     margin:'auto',
                     marginRight:'20px',
                     marginLeft:'20px',
@@ -21,11 +21,11 @@ class Landing extends React.Component {
                     backgroundImage:'url("https://images.pexels.com/photos/929831/pexels-photo-929831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',
           }}>
                 
-          <Jumbotron className="masthead">
-            <div className="container text-center"> 
+          <Jumbotron>
+            <div className="containerjumbo text-center"> 
               <div className="row">
                     <div className="col-sm-10 col-md-5 col-lg-6 mx-auto">
-                    <img src={Yell_Logo}></img>
+                    <img className="landingImg"src={Yell_Logo}></img>
                     </div>
                     <div className="col-sm-7 col-md-8 col-lg-5 mx-auto">
                       <div className="card card-signin my-5">
