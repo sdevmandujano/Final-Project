@@ -1,48 +1,45 @@
 import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
-import dashboardRoutes from "../../routes/dashboard.jsx";
-
+import '../../views/Landing/Landing.css'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import NoMatch from "../../views/NoMatch/NoMatch";
+import UserProfile from "../../views/UserProfile/UserProfile"
 
 export default class Facebook extends Component {
     //initial state
     state = {
-        isLoggedIn: true,
+        isLoggedIn: false,
         userID: '',
         name: '',
         email: '',
         picture: ''
     }
 
-    responseFacebook = response =>{
-       // console.log(response)
-       this.setState({
-        isLoggedIn:true,
-        userID: response.userID,
-        name: response.name,
-        email: response.email,
-        picture: response.picture.data.url
-       });
+    responseFacebook = response => {
+        // console.log(response)
+        this.setState({
+            isLoggedIn: true,
+            userID: response.userID,
+            name: response.name,
+            email: response.email,
+            picture: response.picture.data.url
+        });
     }
-    componentClicked = () => console.log("This is clicked!")
+    componentClicked = () => {
+        console.log("This is clicked!")
+
+    }
 
     render() {
         let fbContent;
 
         if (this.state.isLoggedIn) {
             fbContent= (
-                <div style ={{
-                    width: '100px',
-                    margin:'auto',
-                    borderTopLeftRadius:'30px',
-                    borderTopRightRadius:'20px',
-                    background: '#f4f4f4',
-                    padding: '20px',
-                    alignContent: 'right'
-                }}>
-
-                <img src={this.state.picture} alt={this.state.name}/>
-                <h2>Welcome {this.state.name}</h2>
+            <Router>
+                <div id="App">
+                    <Route path="/user/profile" component={UserProfile} />
                 </div>
+            </Router>
             )
         }
         else {
@@ -51,8 +48,10 @@ export default class Facebook extends Component {
                     appId="528083504331828"
                     autoLoad={true}
                     fields="name,email,picture"
-                    onClick={this.componentClicked}
-                    callback={this.responseFacebook} 
+                    callback={this.responseFacebook}
+                    cssClass="btn btn-lg btn-facebook-1 btn-block text-uppercase bg-primary text-light"
+                    icon="fab fa-facebook-f mr-2"
+                    textButton="Iniciar sesión con Facebook"
                 />
             );
         }
