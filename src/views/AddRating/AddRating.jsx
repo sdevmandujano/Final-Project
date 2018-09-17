@@ -31,7 +31,7 @@ class AddRating extends Component {
                         }
                     }
                     />
-        <FormGroup controlId="formControlsTextarea">
+        <FormGroup>
         <ControlLabel>Comentarios sobre el Jugador</ControlLabel>
                 <FormControl
                 rows="5"

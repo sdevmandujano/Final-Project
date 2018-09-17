@@ -215,7 +215,7 @@ input:focus {
       line-height: 20px;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
     .sidebar .logo a.logo-mini {
-      float: left;
+      float: center;
       text-align: center;
       width: 30px;
       margin-right: 15px; }

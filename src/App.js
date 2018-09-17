@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Dashboard from "./layouts/Dashboard/Dashboard";
-import Facebook from './components/Facebook/Facebook'
 import Landing from "./views/Landing";
 import 'bootstrap';
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";

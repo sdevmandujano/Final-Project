@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import ReactDOM, {render} from 'react-dom';
 import icon from '../../assets/img/rodolfo.jpg';
 import background from '../../assets/img/background.png';
 import  './Nav.css';
-import NavbarToggle from 'react-bootstrap/lib/NavbarToggle';
 import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import MenuItem from 'react-bootstrap/lib/MenuItem';
 
@@ -39,19 +37,21 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
     </form>
     <ul className="navbar-nav mr-auto">
       <li className="nav-item">
-      <a className="nav-link" href="#"><i className="fas fa-gamepad" style={{color: 'red'}}/>Juegos</a>
+      <NavLink to="/"><i className="fas fa-gamepad" style={{color: 'red'}}/>Juegos</NavLink>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#"><i className="fab fa-teamspeak" style={{color: 'red'}}/>Equipos</a>
+        <NavLink to="/"><i className="fab fa-teamspeak" style={{color: 'red'}}/>Equipos</NavLink>
       </li>
-      <li className="nav-item">
+      </ul>
+      <div className="mb-4 p-3">
       <NavDropdown eventKey={3} title=" Amigos" className="fab fa-teamspeak pt-4" id="navbarDropdown">
           <MenuItem eventKey={3.1}>Enviar Mensaje</MenuItem>
           <MenuItem eventKey={3.2}>Califica</MenuItem>
-        </NavDropdown>
-        </li>
-    </ul>
-    <a className="navbar-brand m-auto" href="#">Alfawarrior</a><img className="p-1" src={icon} alt="profile-pic" id="profile-icon" />
+      </NavDropdown>
+        </div>
+
+   
+   <NavLink to="/user/profile">Alfawarrior</NavLink><img className="p-1" src={icon} alt="profile-pic" id="profile-icon" />
   </div>
 </nav>
 );

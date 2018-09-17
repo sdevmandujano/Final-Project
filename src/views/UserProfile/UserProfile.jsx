@@ -12,9 +12,10 @@ import {
 import Multiselect from 'react-widgets/lib/Multiselect'
 import { Card } from "../../components/Card/Card.jsx";
 import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
-import { UserCard } from "../../components/UserCard/UserCard.jsx";
+//import { UserCard } from "../../components/UserCard/UserCard.jsx";
 import Button from "../../components/CustomButton/CustomButton.jsx";
 import 'react-widgets/dist/css/react-widgets.css';
+import API from "../../utils/API";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -22,17 +23,60 @@ class UserProfile extends Component {
     this.state = {
       preview: null,
       isOpen: false ,
-        score: 0,
-        topScore: 0,
-        guessed:"",
-        message: "Click an image to begin!",
-        frie:"",
+        username: "",
+        email: "",
+        twitch:"",
+        Ciudad: "",
+        Steam:"",
+        prefGames: [],
+        teams:[],
         _notificationSystem: null
-
       }
   }
-  
-  sendToStorage = () =>{
+  componentDidMount() {
+    this.loadUser();
+  }
+
+  loadUser = () => {
+    console.log("loading");
+   API.getUser()
+     .then(res =>
+     this.setState({ username: res.data.username}))
+    .catch(err => console.log(err));
+  }; 
+
+  loadResults = (res) => {
+    console.log("hello loading results");
+     this.setState({ articlesResult: res.data });
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+    console.log(this.state.email);
+
+  };
+
+  handleInputChangeTeam = event => {
+    const { value } = event;
+    this.setState({
+      teams: value
+    });
+    console.log(this.state.value);
+
+  };
+  handleFormSubmit = event => {
+    console.log("submit form");
+    event.preventDefault();
+    this.notifyClick();
+    console.log(this.state.username);
+
+  };
+
+
+  notifyClick = () =>{
     console.log("click"); 
     this.setState({ _notificationSystem: this.refs.notificationSystem });
     var _notificationSystem = this.refs.notificationSystem;
@@ -44,7 +88,7 @@ class UserProfile extends Component {
         </div>
       ),
       level: "warning",
-      position: "bc",
+      position: "tr",
       autoDismiss: 15
     });   
   }
@@ -70,21 +114,26 @@ class UserProfile extends Component {
                 title="Edita tu Perfil"
                 content={
                   <form>
-                    <FormInputs
+                    <FormInputs onChange={this.handleInputChange}
                       ncols={["username col-md-5", "col-md-5"]}
                       proprieties={[
                         {
                           label: "Nombre de Usuario",
                           type: "text",
                           bsClass: "form-control",
+                          value:this.state.username,
+                          name:"username",
                           placeholder: "Nombre de Usuario",
-    
+                          onChange: this.handleInputChange,
                         },
                         {
                           label: "Email",
                           type: "email",
                           bsClass: "form-control",
-                          placeholder: "Email"
+                          placeholder: "Email",
+                          onChange: this.handleInputChange,
+                          value:this.state.email,
+                          name:"email",
                         }
                       ]}
                     />
@@ -93,42 +142,55 @@ class UserProfile extends Component {
                       proprieties={[
                         {
                           label: "Ciudad",
+                          onChange: this.handleInputChange,
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "City",
+                          value:this.state.Ciudad,
+                          name:"Ciudad",
                         }
                       ]}
                     />
 
-                    <FormInputs
+                    <FormInputs 
                       ncols={["col-md-4","col-md-4"]}
                       proprieties={[
                         {
                           label: "Usuario Steam (Opcional)",
+                          onChange: this.handleInputChange,
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Steam",
+                          value:this.state.Steam,
+                          name:"Steam",
                         },                        {
                           label: "Usuario Twitch (Opcional)",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Twitch",
+                          value:this.state.twitch,
+                          name:"twich",
                         },
                         
                       ]}
                     />
                     <Row>
                       <Col md={12}>
-                      <div controlId="formControlsCombo">
+                      <div>
                           <ControlLabel>SELECCIONA LOS JUEGOS A ENCONTRAR EQUIPO</ControlLabel>
-                          <Multiselect textField="name" data={gamesOptions}/>
+                          <Multiselect 
+                            textField="name"
+                            data={gamesOptions}
+                            id="Juegos"
+                            onChange={this.handleInputChangeTeam}
+                            />
                         </div>
                       </Col>
                     </Row>
 
                     <Row>
                       <Col md={12}>
-                        <FormGroup controlId="formControlsTextarea">
+                        <FormGroup>
                           <ControlLabel>Acerca de Mi</ControlLabel>
                           <FormControl
                             rows="5"
@@ -140,7 +202,7 @@ class UserProfile extends Component {
                         </FormGroup>
                       </Col>
                     </Row>
-                    <Button bsStyle="danger" onClick={this.sendToStorage} pullRight fill>
+                    <Button bsStyle="danger" onClick={this.handleFormSubmit} pullRight fill>
                       Actualizar
                     </Button>
                     <div className="clearfix" />
@@ -153,8 +215,7 @@ class UserProfile extends Component {
                 title="Avatar"
                 content={
                   <img src={this.state.preview} alt="Preview" />
-                  
-                
+
                 }
                 />
             </Col>

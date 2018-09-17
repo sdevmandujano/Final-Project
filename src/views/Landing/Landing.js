@@ -39,7 +39,7 @@ class Landing extends React.Component {
                         <button className="btn btn-lg btn-google-1 btn-block text-uppercase bg-danger text-light" type="submit"><i className="fab fa-google mr-2"></i> Iniciar sesión con Google</button>
                         <br/>
                         <Facebook/>
-                        <hr /> Or <hr />
+                        <hr /> O <hr />
                         <div className="form-label-group">
                           <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
                           <label for="inputEmail">Correo Electrónico</label>

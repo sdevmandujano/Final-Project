@@ -31,7 +31,7 @@ content={
             }
         }
         />
-        <FormGroup controlId="formControlsTextarea">
+        <FormGroup>
         <ControlLabel>Equipo</ControlLabel>
                 <FormControl
                 rows="2"
