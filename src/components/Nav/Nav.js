@@ -37,10 +37,10 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
     </form>
     <ul className="navbar-nav mr-auto">
       <li className="nav-item">
-      <NavLink to="/"><i className="fas fa-gamepad" style={{color: 'red'}}/>Juegos</NavLink>
+      <NavLink to="/user/games"><i className="fas fa-gamepad" style={{color: 'red'}}/>Juegos</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to="/"><i className="fab fa-teamspeak" style={{color: 'red'}}/>Equipos</NavLink>
+        <NavLink to="/user/teams"><i className="fab fa-teamspeak" style={{color: 'red'}}/>Equipos</NavLink>
       </li>
       </ul>
       <div className="mb-4 p-3">
