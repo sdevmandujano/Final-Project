@@ -59,19 +59,11 @@ class UserProfile extends Component {
 
   };
 
-  handleInputChangeTeam = event => {
-    const { value } = event;
-    this.setState({
-      teams: value
-    });
-    console.log(this.state.value);
-
-  };
   handleFormSubmit = event => {
     console.log("submit form");
     event.preventDefault();
     this.notifyClick();
-    console.log(this.state.username);
+    console.log(this.state.prefGames);
 
   };
 
@@ -181,8 +173,8 @@ class UserProfile extends Component {
                           <Multiselect 
                             textField="name"
                             data={gamesOptions}
-                            id="Juegos"
-                            onChange={this.handleInputChangeTeam}
+                            value={this.state.prefGames}
+                            onChange={value =>  this.setState({ prefGames: value })}
                             />
                         </div>
                       </Col>
