@@ -3,6 +3,7 @@ import Jumbotron from "../../components/Jumbotron"
 import Facebook from '../../components/Facebook/Facebook'
 import './Landing.css'
 import Yell_Logo from '../../assets/img/Yell-07.png'
+import GoogleLoginApp from "../../components/Google/google";
 
 
 
@@ -36,7 +37,7 @@ class Landing extends React.Component {
                     <div className="card-body">
                       <h5 className="card-title text-center">Iniciar Sesión</h5>
                       <form className="form-signin">
-                        <button className="btn btn-lg btn-google-1 btn-block text-uppercase bg-danger text-light" type="submit"><i className="fab fa-google mr-2"></i> Iniciar sesión con Google</button>
+                        <GoogleLoginApp />
                         <br/>
                         <Facebook/>
                         <hr /> O <hr />
@@ -46,7 +47,7 @@ class Landing extends React.Component {
                         </div>
                         <div className="form-label-group">
                           <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
-                          <label for="inputPassword">Constraseña</label>
+                          <label for="inputPassword">Contraseña</label>
                         </div>
                         <div className="custom-control custom-checkbox mb-3">
                           <input type="checkbox" className="custom-control-input" id="customCheck1" />
