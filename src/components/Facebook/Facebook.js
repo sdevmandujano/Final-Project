@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
 import '../../views/Landing/Landing.css'
-import { BrowserRouter as Router, Route } from "react-router-dom";
-//import NoMatch from "../../views/NoMatch/NoMatch";
-import UserProfile from "../../views/UserProfile/UserProfile"
+import  { Redirect } from 'react-router-dom'
 
 export default class Facebook extends Component {
     //initial state
@@ -34,15 +32,10 @@ export default class Facebook extends Component {
         let fbContent;
         //To send user to the main page after login
         if (this.state.isLoggedIn) {
-            console.log("User is redirected");
-            fbContent= (
-                
-            <Router>
-                <div id="App">
-                    <Route path="/user/profile" component={UserProfile} />
-                </div>
-            </Router>
-            )
+            console.log("User is redirected");   
+            fbContent = (
+                <Redirect to='/user/profile'  />
+            );
         }
         else {
             fbContent = (
