@@ -42,16 +42,16 @@ class Landing extends React.Component {
                         <Facebook/>
                         <hr /> O <hr />
                         <div className="form-label-group">
-                          <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
-                          <label for="inputEmail">Correo Electrónico</label>
+                          <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
+                          <label>Correo Electrónico</label>
                         </div>
                         <div className="form-label-group">
                           <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
-                          <label for="inputPassword">Contraseña</label>
+                          <label>Contraseña</label>
                         </div>
                         <div className="custom-control custom-checkbox mb-3">
                           <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                          <label className="custom-control-label" for="customCheck1">Guardar contraseña</label>
+                          <label className="custom-control-label">Guardar contraseña</label>
                         </div>
                         <button className="btn btn-lg btn-primary bg-secondary text-light btn-block text-uppercase" type="submit">Registrarte</button>
                         <div className="m-2">
@@ -80,7 +80,7 @@ class Landing extends React.Component {
               <div className="col-lg-4">
                 <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                   <div className="features-icons-icon mx-auto">
-                    <i class="fas fa-users fa-4x"></i>
+                    <i className="fas fa-users fa-4x"></i>
                   </div>
                   <h3>Recluta</h3>
                   <p className="lead mb-0">Busca y encuentra a los jugadores necesarios para completar tu equipo!</p>
@@ -89,7 +89,7 @@ class Landing extends React.Component {
               <div className="col-lg-4">
                 <div className="features-icons-item mx-auto mb-0 mb-lg-3">
                   <div className="features-icons-icon mx-auto">
-                    <i class="far fa-check-circle fa-4x"></i>
+                    <i className="far fa-check-circle fa-4x"></i>
                   </div>
                   <h3>Evalúa</h3>
                   <p className="lead mb-0">Califica a los miembros de tu equipo!</p>
