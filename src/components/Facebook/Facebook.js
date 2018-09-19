@@ -30,23 +30,22 @@ export default class Facebook extends Component {
 
     }
 
+    
+
     render() {
         let fbContent;
         //To send user to the main page after login
         if (this.state.isLoggedIn) {
-            console.log("User is redirected"); 
-            api.getUser(this.state.email).then(res => {
-                console.log(res)
-                //if user exist, do not create the user
-                //return -1 or userID
-
-                //if user is not in DB, save the user saveUser (data) where data has email & picture
-                //return -1 or userID
-
-            })  
-            fbContent = (
-                <Redirect to='/user/profile/:Id'  />
-            );
+            console.log("User is logged in"); 
+             api.getUser(this.state.email).then(res => {
+                console.log("Response with userId" + res.data);
+                let pathy=`/user/profile/${res.data}`;
+                console.log(pathy);
+                //<Route path="/profile/:userId" render={({ match }) => (
+                //<Redirect to:{`/user/profile/${res.data}`} />
+                //)} />
+            }); 
+            
         }
         else {
             fbContent = (
