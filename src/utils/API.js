@@ -17,7 +17,7 @@ export default {
     return axios.post("/api/addUser", userData);
   },
 
-  getUser: function(idUser) {
-    return axios.get("/api/getUser", idUser);
+  getUser: function() {
+    return axios.get("/api/players");
   }
 };
