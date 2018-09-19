@@ -7,17 +7,17 @@ axios.create({
 export default {
   
   getTeamers: function(idUser) {
-    return axios.get("/api/team/", idUser);
+    return axios.get("https://localhost:3005/api/team/", idUser);
   },
   getGames: function(idGame) {
-    return axios.get("/api/game/", idGame);
+    return axios.get("https://localhost:3005/api/game/", idGame);
   },
   
   saveUser: function(userData) {
-    return axios.post("/api/addUser", userData);
+    return axios.post("https://localhost:3005/api/addUser", userData);
   },
 
   getUser: function() {
-    return axios.get("/api/players");
+    return axios.get("http://localhost:3005/api/players");
   }
 };

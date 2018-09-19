@@ -15,8 +15,8 @@ export default class Facebook extends Component {
     }
 
     responseFacebook = response => {
-        console.log("This is the response from FB: ")
-        console.log(response)
+        //console.log("This is the response from FB: ")
+        //console.log(response)
         this.setState({
             isLoggedIn: true,
             userID: response.userID,
@@ -35,17 +35,21 @@ export default class Facebook extends Component {
         //To send user to the main page after login
         if (this.state.isLoggedIn) {
             console.log("User is redirected"); 
-            api.getUser(this.state.email).then(res => {
-                console.log(res)
-                //if user exist, do not create the user
-                //return -1 or userID
 
+            console.log(this.state.email);
+            console.log(this.state.picture);
+            api.getUser().then(res => {
+                console.log(res)
+                console.log(res.data);
+                //if user exist, do not create the user
+                
+                //return -1 or userID
+                
                 //if user is not in DB, save the user saveUser (data) where data has email & picture
                 //return -1 or userID
-
-            })  
+            });  
             fbContent = (
-                <Redirect to='/user/profile/:Id'  />
+                <Redirect to='/user/profile/:id'  />
             );
         }
         else {

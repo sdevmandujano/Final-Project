@@ -35,27 +35,15 @@ class Landing extends React.Component {
                 <div className="col-sm-7 col-md-8 col-lg-5 mx-auto">
                   <div className="card card-signin my-5">
                     <div className="card-body">
-                      <h5 className="card-title text-center">Iniciar Sesión</h5>
+                      <h5 className="card-title text-center">INICIAR SESIÓN</h5>
+                      <hr />
                       <form className="form-signin">
                         <GoogleLoginApp />
                         <br/>
                         <Facebook/>
-                        <hr /> O <hr />
-                        <div className="form-label-group">
-                          <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
-                          <label>Correo Electrónico</label>
-                        </div>
-                        <div className="form-label-group">
-                          <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
-                          <label>Contraseña</label>
-                        </div>
-                        <div className="custom-control custom-checkbox mb-3">
-                          <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                          <label className="custom-control-label">Guardar contraseña</label>
-                        </div>
-                        <button className="btn btn-lg btn-primary bg-secondary text-light btn-block text-uppercase" type="submit">Registrarte</button>
+                        <hr />
                         <div className="m-2">
-                          <p className="small">Al registrarte, aceptas nuestras Condiciones, la Política de datos y la Política de cookies.</p>
+                          <p className="small">Al iniciar sesión, aceptas nuestras Condiciones, la Política de datos y la Política de cookies.</p>
                         </div>
                       </form>
                     </div>
