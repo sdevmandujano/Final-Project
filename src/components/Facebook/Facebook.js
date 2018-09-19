@@ -37,10 +37,10 @@ export default class Facebook extends Component {
         //To send user to the main page after login
         if (this.state.isLoggedIn) {
             console.log("User is logged in"); 
-             api.getUser(this.state.email).then(res => {
+             api.getUserId(this.state.email).then(res => {
                 console.log("Response with userId" + res.data);
                 let pathy=`/user/profile/${res.data}`;
-                console.log(pathy);
+                this.props.history.push("/")
                 //<Route path="/profile/:userId" render={({ match }) => (
                 //<Redirect to:{`/user/profile/${res.data}`} />
                 //)} />
