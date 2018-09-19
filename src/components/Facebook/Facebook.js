@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
 import '../../views/Landing/Landing.css'
 import  { Redirect } from 'react-router-dom'
-import api from "../../utils/API"
+import api from "../../utils/DatabaseRoutes"
 
 export default class Facebook extends Component {
     //initial state

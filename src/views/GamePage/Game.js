@@ -27,7 +27,7 @@ class Game extends Component {
     <Row>
     <Col md={12}>
        <Jumbotron className="selectteam">
-        <iframe className="mx-auto" width="100%" height="500" src="https://www.youtube.com/embed/mP36g8I_0GY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen />
+        <iframe className="mx-auto" title="provisional" width="100%" height="500" src="https://www.youtube.com/embed/mP36g8I_0GY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen />
       </Jumbotron>
      </Col>
     </Row>  

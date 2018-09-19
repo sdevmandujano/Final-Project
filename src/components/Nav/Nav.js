@@ -22,10 +22,8 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
     toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
 
     render() {
-      const menuClass = `dropdown-menu${this.state.isOpen ? " open" : ""}`;
 
     return (
-
 <nav className="navbar navbar-expand-lg text-light" style={ {backgroundImage: `url(${background})`}}>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
