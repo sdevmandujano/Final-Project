@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
 import '../../views/Landing/Landing.css'
 import  { Redirect } from 'react-router-dom'
+import api from "../../utils/API"
 
 export default class Facebook extends Component {
     //initial state
@@ -14,7 +15,8 @@ export default class Facebook extends Component {
     }
 
     responseFacebook = response => {
-        // console.log(response)
+        console.log("This is the response from FB: ")
+        console.log(response)
         this.setState({
             isLoggedIn: true,
             userID: response.userID,
@@ -32,9 +34,18 @@ export default class Facebook extends Component {
         let fbContent;
         //To send user to the main page after login
         if (this.state.isLoggedIn) {
-            console.log("User is redirected");   
+            console.log("User is redirected"); 
+            api.getUser(this.state.email).then(res => {
+                console.log(res)
+                //if user exist, do not create the user
+                //return -1 or userID
+
+                //if user is not in DB, save the user saveUser (data) where data has email & picture
+                //return -1 or userID
+
+            })  
             fbContent = (
-                <Redirect to='/user/profile'  />
+                <Redirect to='/user/profile/:Id'  />
             );
         }
         else {
