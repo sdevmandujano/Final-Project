@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from '../../utils/API';
 
 export class UserCard extends Component {
   render() {
@@ -9,7 +10,7 @@ export class UserCard extends Component {
         </div>
         <div className="content">
           <div className="author">
-            <a href="#pablo">
+            <a href="#">
               <img
                 className="avatar border-gray"
                 src={this.props.avatar}

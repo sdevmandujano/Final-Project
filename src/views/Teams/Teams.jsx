@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { TeamTable } from "../../components/TeamTable/TeamTable.jsx";
 import {
     Grid,
-    Row
+    Row,
+    Col
 } from "react-bootstrap";
 import Button from "../../components/CustomButton/CustomButton.jsx";
 

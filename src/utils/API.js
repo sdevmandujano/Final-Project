@@ -1,20 +1,23 @@
 import axios from "axios";
 
+axios.create({
+  baseURL: `http://localhost:3005/`
+})
+
 export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
+  
+  getTeamers: function(idUser) {
+    return axios.get("/api/team/", idUser);
   },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
+  getGames: function(idGame) {
+    return axios.get("/api/game/", idGame);
   },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
+  
+  saveUser: function(userData) {
+    return axios.post("/api/addUser", userData);
   },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+
+  getUser: function(idUser) {
+    return axios.get("/api/getUser", idUser);
   }
 };
