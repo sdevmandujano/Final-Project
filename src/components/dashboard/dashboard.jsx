@@ -51,3 +51,22 @@ class SearchResultContainer extends Component {
         console.log(error);
       });
   };
+
+  render() {
+    return (
+      <div>
+        {this.state.data ? (
+          <div
+            className="container"
+            dangerouslySetInnerHTML={{ __html: this.state.data.embed_html }}
+          />
+        ) : null}
+        {this.state.top.map(element => {
+          return <img className="gamesgrid" src={element.game.box.large} />;
+        })}
+      </div>
+    );
+  }
+}
+
+export default SearchResultContainer;
