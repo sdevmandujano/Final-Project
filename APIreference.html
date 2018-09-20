@@ -39,3 +39,27 @@
                 clipsDisplay.appendChild(clipItem);
             });
         }
+
+        var queryURL = "https://api.twitch.tv/kraken/games/top";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            headers: { 'Client-ID': '4sq1xbwvhlr0nn95o51t91c0pfmajm' }
+
+        }).then(function (response) {
+            console.log(response);
+
+
+
+            $(".game1").html("<img src =" + response.top[0].game.box.large + " Fortnite</h1>");
+            $(".game2").html("<img src =" + response.top[1].game.box.large + " Fortnite</h1>");
+            $(".game3").html("<img src =" + response.top[2].game.box.large + " Fortnite</h1>");
+            $(".game4").html("<img src =" + response.top[3].game.box.large + " Fortnite</h1>");
+            $(".game5").html("<img src =" + response.top[4].game.box.large + " Fortnite</h1>");
+            $(".game6").html("<img src =" + response.top[5].game.box.large + " Fortnite</h1>");
+        });
+    </script>
+</body>
+
+</html>
