@@ -1,65 +1,88 @@
 import React, { Component } from "react";
-import {
-    Grid,
-    Row,
-    Col,
-    Panel
-} from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import Button from "../../components/CustomButton/CustomButton.jsx";
-import avatar from "../../assets/img/rodolfo.jpg";
+import { Card } from "../../components/Card/Card.jsx";
 import 'react-widgets/dist/css/react-widgets.css';
 
 export class TeamTable extends Component {
-    constructor(props, context) {
-        super(props, context);
-    
-        this.state = {
-          open: true
-        };
-      }
 
     render() {
         return (
-            <Panel id="mis-equipos" defaultExpanded>
-            <Panel.Heading>
-              <Panel.Title toggle>
-                Mi Equipo
-              </Panel.Title>
-            </Panel.Heading>
-            <Panel.Collapse>
-              <Panel.Body>
-<Grid>
-    <Row>
-        <Col md={4}>
-        <img src={avatar} alt="avatar" />
-        </Col>
-
-        <Col md={2}>
-        Gamer Tag
-        </Col>
-
-        <Col md={2}>
-        <Button simple>
-        Calificar Jugador
-        </Button>
-        </Col>
-
-        <Col md={2}>
-        <Button simple>
-        Chat
-        </Button>
-        </Col>
-
-        <Col md={2}>
-        <Button simple>
-        Echar del Equipo
-        </Button>
-        </Col>
-    </Row>
-</Grid>
-              </Panel.Body>
-            </Panel.Collapse>
-          </Panel>
+          <Card
+          title= "Equipo"
+          content={
+<Table responsive>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre de Jugador</th>
+      <th>Puntaje</th>
+      <th>Mensajes</th>
+      <th>Abandonar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Alfawarrior</td>
+      <td>
+      <Button bsStyle="info">
+      Calificar
+      </Button>
+      </td>
+      <td>
+      <Button bsStyle="info">
+      Chat
+      </Button>
+      </td>
+      <td>
+      <Button bsStyle="info">
+      Quitar
+      </Button>
+      </td>
+    </tr>
+    <tr>
+    <td>2</td>
+      <td>Shotzzy</td>
+      <td>
+      <Button bsStyle="info">
+      Calificar
+      </Button>
+      </td>
+      <td>
+      <Button bsStyle="info">
+      Chat
+      </Button>
+      </td>
+      <td>
+      <Button bsStyle="info">
+      Quitar
+      </Button>
+      </td>
+    </tr>
+    <tr>
+    <td>3</td>
+      <td>SamJack</td>
+      <td>
+      <Button bsStyle="info">
+      Calificar
+      </Button>
+      </td>
+      <td>
+      <Button bsStyle="info">
+      Chat
+      </Button>
+      </td>
+      <td>
+      <Button bsStyle="info">
+      Quitar
+      </Button>
+      </td>
+    </tr>
+  </tbody>
+</Table>
+          }
+          />
         );
     }
 }

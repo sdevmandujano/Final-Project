@@ -6,9 +6,6 @@ export default {
     getTeamers: function(idUser) {
       return Api().get("/api/team/", idUser);
     },
-    getGames: function(idGame) {
-      return Api().get("/api/game/", idGame);
-    },
     saveUser: function(userData) {
       return Api().post("/api/addUser", userData);
     },

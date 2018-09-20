@@ -8,11 +8,6 @@ import GoogleLoginApp from "../../components/Google/google";
 
 
 class Landing extends React.Component {
-  state = {
-    isLoggedIn: false,
-    userID: ""
-}
-
   render() {
     return (
       <div>
@@ -45,7 +40,7 @@ class Landing extends React.Component {
                       <form className="form-signin">
                         <GoogleLoginApp />
                         <br/>
-                        <Facebook user={this.state.userID} login={this.state.isLoggedIn}/>
+                        <Facebook responseFacebook={this.props.responseFacebook}/>
                         <hr />
                         <div className="m-2">
                           <p className="small">Al iniciar sesión, aceptas nuestras Condiciones, la Política de datos y la Política de cookies.</p>
