@@ -21,7 +21,12 @@ export default class Facebook extends Component {
    
 
     responseFacebook = response => {
+<<<<<<< HEAD
         console.log("This is the response from FB: ")
+=======
+        //console.log("This is the response from FB: ")
+        //console.log(response)
+>>>>>>> ae1aa03f0e447987c46b64af4996549b4e476f8b
         this.setState({
             isLoggedIn: true,
             userID: response.userID,
