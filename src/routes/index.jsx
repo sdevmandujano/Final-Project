@@ -8,12 +8,10 @@ const indexRoutes = [
     component: Landing
   },
   {
-    path: "/user/:id",
+    path: "/user/profile",
     name: "User",
     component: Dashboard
   }
 ];
-
-
 
 export default indexRoutes;

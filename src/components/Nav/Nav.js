@@ -22,10 +22,8 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
     toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
 
     render() {
-      const menuClass = `dropdown-menu${this.state.isOpen ? " open" : ""}`;
 
     return (
-
 <nav className="navbar navbar-expand-lg text-light" style={ {backgroundImage: `url(${background})`}}>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
@@ -37,10 +35,10 @@ import MenuItem from 'react-bootstrap/lib/MenuItem';
     </form>
     <ul className="navbar-nav mr-auto">
       <li className="nav-item">
-      <NavLink to="/"><i className="fas fa-gamepad" style={{color: 'red'}}/>Juegos</NavLink>
+      <NavLink to="/user/games"><i className="fas fa-gamepad" style={{color: 'red'}}/>Juegos</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to="/"><i className="fab fa-teamspeak" style={{color: 'red'}}/>Equipos</NavLink>
+        <NavLink to="/user/teams"><i className="fab fa-teamspeak" style={{color: 'red'}}/>Equipos</NavLink>
       </li>
       </ul>
       <div className="mb-4 p-3">

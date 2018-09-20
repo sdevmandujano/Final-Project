@@ -5,7 +5,7 @@ import FontAwesome from 'react-fontawesome';
 class GoogleLoginApp extends React.Component {
 
   constructor(props, context) {
-    super(props, context);
+    super(props);
   }
 
   responseGoogle(googleUser) {
@@ -26,7 +26,6 @@ class GoogleLoginApp extends React.Component {
           fetchBasicProfile={false}
           responseHandler={this.responseGoogle}
           buttonText=" Iniciar sesión con Google"
-          className="btn btn-lg btn-google-1 btn-block text-uppercase bg-danger text-light"
           >
         <FontAwesome
           name='google'

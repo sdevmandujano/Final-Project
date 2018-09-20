@@ -39,7 +39,7 @@ const dashboardRoutes = [
     path: "/user/juegos",
     name: "Busqueda",
     icon: "pe-7s-search",
-    component: Games
+    component: GamePage
   },
   {
     path: "/user/juegos/:id",

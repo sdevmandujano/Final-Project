@@ -1,23 +1,8 @@
-import axios from "axios";
+import axios from 'axios'
+// import store from '@/store/store'
 
-axios.create({
-  baseURL: `http://localhost:3005/`
-})
-
-export default {
-  
-  getTeamers: function(idUser) {
-    return axios.get("/api/team/", idUser);
-  },
-  getGames: function(idGame) {
-    return axios.get("/api/game/", idGame);
-  },
-  
-  saveUser: function(userData) {
-    return axios.post("/api/addUser", userData);
-  },
-
-  getUser: function(idUser) {
-    return axios.get("/api/getUser", idUser);
-  }
-};
+export default () => {
+  return axios.create({
+    baseURL: `http://localhost:3005/`
+  })
+}
