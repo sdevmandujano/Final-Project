@@ -6,7 +6,7 @@ import Teams from "../views/Teams/Teams";
 
 const dashboardRoutes = [
   {
-    path: "/user/profile",
+    path: "/",
     name: "Perfil",
     icon: "pe-7s-user",
     component: UserProfile

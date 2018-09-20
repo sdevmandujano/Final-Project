@@ -11,14 +11,14 @@ import dashboardRoutes from "../../routes/dashboard.jsx";
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    console.log("passing user " + this.props.user)
+    console.log("passing user " + this.props.email)
     this.state = {
+      user: this.props.user,
       _notificationSystem: null
     };
   }
   
   componentDidMount() {
-    console.log("passing user" + this.props.user)
     this.setState({ _notificationSystem: this.refs.notificationSystem });
     var _notificationSystem = this.refs.notificationSystem;
     _notificationSystem.addNotification({
@@ -45,11 +45,11 @@ class Dashboard extends Component {
             {dashboardRoutes.map((prop, key) => {
               return (
                   <Route
-                    path={prop.path}
+                    exact path={prop.path}
                     key={key}
                     render={routeProps => (
                       <prop.component
-                        {...routeProps}
+                        {...routeProps} email={this.props.email}
                         handleClick={this.handleNotificationClick}
                       />
                     )}
