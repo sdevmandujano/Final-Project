@@ -5,7 +5,6 @@ import NotificationSystem from "react-notification-system";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Nav from "../../components/Nav";
 import { style } from "../../variables/Variables.jsx";
 
 import dashboardRoutes from "../../routes/dashboard.jsx";
@@ -105,7 +104,6 @@ class Dashboard extends Component {
         <NotificationSystem ref="notificationSystem" style={style} />
         <Sidebar {...this.props} />
         <div id="main-panel" className="main-panel" ref="mainPanel">
-        <Nav />
           
           <Switch>
             {dashboardRoutes.map((prop, key) => {

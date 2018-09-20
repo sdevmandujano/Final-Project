@@ -9,7 +9,6 @@ import {
 } from "react-bootstrap";
 import { Card } from "../../components/Card/Card.jsx";
 import Jumbotron from "../../components/Jumbotron";
-import Games from "../../components/Games";
 import "../../views/Selection/Selection.css";
 class Selection extends Component {
   state = {
@@ -37,10 +36,7 @@ class Selection extends Component {
     </Row>  
     <Row>
     <Col className="mx-auto" md={10}>
-    <Card 
-       title="Selecciona un Juego"
-    content={ <Games /> }>
-    </Card>
+ 
     </Col>
     </Row> 
   </Grid>

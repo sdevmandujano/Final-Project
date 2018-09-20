@@ -8,6 +8,7 @@ import {
   } from "react-bootstrap";
 import { Card } from "../../components/Card/Card.jsx";
 import { UserCard } from "../../components/UserCard/UserCard.jsx";
+import Button from "../../components/CustomButton/CustomButton.jsx";
 import avatar from "../../assets/img/rodolfo.jpg";
 import imagen from "../../assets/img/sidebarback.jpg";
 import 'react-widgets/dist/css/react-widgets.css';
@@ -20,7 +21,7 @@ class RatePage extends Component {
 <Row>
     <Col md={6}>
     <Card
-    title="Calificación y Opiniones"
+    title="Calificación"
     content={
         <RateCard />
     }
@@ -32,7 +33,7 @@ class RatePage extends Component {
                 bgImage={imagen}
                 avatar={avatar}
                 name="Rodolfo Resines"
-                userName="yellWashawasha"
+                userName="Alfawarrior"
                 description={
                   <span>
                     Twitch
@@ -59,9 +60,12 @@ class RatePage extends Component {
     </Col>
 </Row>
 
-<Row>
+  <Card
+  title="Opiniones"
+  content={
 <CommentsPanel />
-</Row>
+  }
+/>
 
 </Grid>
 </div>

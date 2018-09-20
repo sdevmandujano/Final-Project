@@ -15,14 +15,8 @@ class Teams extends Component {
 <Button bsStyle="info" pullRight fill type="submit">
             Crear Equipo
 </Button>
-</Row>
 
-<Row>
-
- <TeamTable />
-
-  <TeamTable />
-
+<TeamTable />
 </Row>
 </Grid>
 </div>

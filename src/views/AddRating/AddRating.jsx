@@ -7,61 +7,70 @@ import {
   ControlLabel,
   FormControl
 } from "react-bootstrap";
-
+import Multiselect from 'react-widgets/lib/Multiselect';
+import Combobox from 'react-widgets/lib/Combobox';
 import { Card } from "../../components/Card/Card.jsx";
-import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
 import Button from "../../components/CustomButton/CustomButton.jsx";
 import 'react-widgets/dist/css/react-widgets.css';
 
 class AddRating extends Component {
     render() {
+        let gamesOptions = ['orange', 'red', 'blue', 'purple'];
+        let playerRating = [1, 2, 3, 4, 5];
         return (
             <div className="content">
-            <Card
-            title="Califica al Jugador"
-            content={
-                <form>
-                    <FormInputs
-                    properties={
-                        {
-                            label: "Calificación del 1 al 5",
-                            type: "number",
-                            bsClass: "form-control",
-                            placeholder: "Puntaje del 1 al 5"
-                        }
-                    }
-                    />
-        <FormGroup controlId="formControlsTextarea">
-        <ControlLabel>Comentarios sobre el Jugador</ControlLabel>
-                <FormControl
-                rows="5"
-                componentClass="textarea"
-                bsClass="form-control"
-                placeholder="Comenta sobre tu experiencia con este jugador"
-                defaultValue="Buen teamate"
-                />
-        </FormGroup>
-        <Grid>
-            <Row>
-                <Col md={6}>
-                <Button bsStyle="info" pullLeft fill type="submit">
-                      Cancelar
-                    </Button>
-                </Col>
+        <Grid fluid>
+          <Row>
+            <Col md={8}>
+              <Card
+                title="Escribe una opinión"
+                content={
+                  <form>
+                    <Row>
+                      <Col md={12}>
+                      <div controlId="formControlsCombo">
+                          <ControlLabel>Selecciona el / los juegos</ControlLabel>
+                          <Multiselect textField="name" data={gamesOptions}/>
+                        </div>
+                      </Col>
+                    </Row>
 
-                <Col md={6}>
-                <Button bsStyle="info" pullRight fill type="submit">
-                      Agregar Opinión
-                </Button>
-                </Col>
-            </Row>
+                    <Row>
+                      <Col md={12}>
+                      <div controlId="formControlsCombo">
+                          <ControlLabel>Calificación del 1 (muy malo) al 5 (excelente)</ControlLabel>
+                          <Combobox textField="rating" data={playerRating}/>
+                        </div>
+                      </Col>
+                    </Row>
+
+                    <Row>
+                      <Col md={12}>
+                        <FormGroup controlId="formControlsTextarea">
+                          <ControlLabel>Comentarios</ControlLabel>
+                          <FormControl
+                            rows="5"
+                            componentClass="textarea"
+                            bsClass="form-control"
+                            placeholder="Describe al jugador"
+                            defaultValue="Excelente para jugar en equipo"
+                          />
+                        </FormGroup>
+                      </Col>
+                    </Row>
+                    <Button bsStyle="info" pullRight fill type="submit">
+                      Agregar
+                    </Button>
+                    <div className="clearfix" />
+                  </form>
+                }
+              />
+            </Col>
+          </Row>
         </Grid>
-                </form>
-            }
-            />
             </div>
         );
     }
 }
 
-export default AddRating
+export default AddRating;
