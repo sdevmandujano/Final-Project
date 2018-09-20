@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
 import '../../views/Landing/Landing.css'
 import  { Redirect } from 'react-router-dom'
-import api from "../../utils/API"
+import api from "../../utils/DatabaseRoutes"
 
 export default class Facebook extends Component {
     //initial state
@@ -30,27 +30,22 @@ export default class Facebook extends Component {
 
     }
 
+    
+
     render() {
         let fbContent;
         //To send user to the main page after login
         if (this.state.isLoggedIn) {
-            console.log("User is redirected"); 
-
-            console.log(this.state.email);
-            console.log(this.state.picture);
-            api.getUser().then(res => {
-                console.log(res)
-                console.log(res.data);
-                //if user exist, do not create the user
-                
-                //return -1 or userID
-                
-                //if user is not in DB, save the user saveUser (data) where data has email & picture
-                //return -1 or userID
-            });  
-            fbContent = (
-                <Redirect to='/user/profile/:id'  />
-            );
+            console.log("User is logged in"); 
+             api.getUserId(this.state.email).then(res => {
+                console.log("Response with userId" + res.data);
+                let pathy=`/user/profile/${res.data}`;
+                this.props.history.push("/")
+                //<Route path="/profile/:userId" render={({ match }) => (
+                //<Redirect to:{`/user/profile/${res.data}`} />
+                //)} />
+            }); 
+            
         }
         else {
             fbContent = (

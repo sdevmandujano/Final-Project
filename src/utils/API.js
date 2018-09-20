@@ -1,5 +1,7 @@
-import axios from "axios";
+import axios from 'axios'
+// import store from '@/store/store'
 
+<<<<<<< HEAD
 axios.create({
   baseURL: `http://localhost:3005/`
 })
@@ -21,3 +23,10 @@ export default {
     return axios.get("http://localhost:3005/api/players");
   }
 };
+=======
+export default () => {
+  return axios.create({
+    baseURL: `http://localhost:3005/`
+  })
+}
+>>>>>>> 0906f7285e2b99b94e6eb9b5961a6132c23e7927

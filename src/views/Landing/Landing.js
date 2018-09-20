@@ -29,7 +29,7 @@ class Landing extends React.Component {
               <div className="row">
                 <div className="col-sm-10 col-md-5 col-lg-6 mx-auto">
                   <div className="align-left">
-                    <img src={Yell_Logo} width="100%" height="100%"></img>
+                    <img src={Yell_Logo} alt="logo" width="100%" height="100%"></img>
                   </div>
                 </div>
                 <div className="col-sm-7 col-md-8 col-lg-5 mx-auto">
