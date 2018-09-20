@@ -1,22 +1,27 @@
 import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
 import '../../views/Landing/Landing.css'
-import  { Redirect } from 'react-router-dom'
+import  { Link, Redirect } from 'react-router-dom'
 import api from "../../utils/DatabaseRoutes"
+import Dashboard from "../../layouts/Dashboard/Dashboard"
+import Landing from '../../views/Landing/Landing';
 
 export default class Facebook extends Component {
-    //initial state
-    state = {
-        isLoggedIn: false,
-        userID: '',
-        name: '',
-        email: '',
-        picture: ''
+    constructor(props){
+        super(props);
+        this.state = {
+            isLoggedIn: this.props.login,
+            userID: '',
+            name: '',
+            email: '',
+            picture: '',
+            user:this.props.user,
+        }
     }
+   
 
     responseFacebook = response => {
         console.log("This is the response from FB: ")
-        console.log(response)
         this.setState({
             isLoggedIn: true,
             userID: response.userID,
@@ -36,14 +41,11 @@ export default class Facebook extends Component {
         let fbContent;
         //To send user to the main page after login
         if (this.state.isLoggedIn) {
+            
             console.log("User is logged in"); 
              api.getUserId(this.state.email).then(res => {
-                console.log("Response with userId" + res.data);
-                let pathy=`/user/profile/${res.data}`;
-                this.props.history.push("/")
-                //<Route path="/profile/:userId" render={({ match }) => (
-                //<Redirect to:{`/user/profile/${res.data}`} />
-                //)} />
+                console.log("Response with userId " + res.data);
+                <Link path="/" component={Landing}/>
             }); 
             
         }

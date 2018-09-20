@@ -8,6 +8,11 @@ import GoogleLoginApp from "../../components/Google/google";
 
 
 class Landing extends React.Component {
+  state = {
+    isLoggedIn: false,
+    userID: ""
+}
+
   render() {
     return (
       <div>
@@ -39,7 +44,7 @@ class Landing extends React.Component {
                       <form className="form-signin">
                         <GoogleLoginApp />
                         <br/>
-                        <Facebook/>
+                        <Facebook user={this.state.userID} login={this.state.isLoggedIn}/>
                         <hr /> O <hr />
                         <div className="form-label-group">
                           <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
