@@ -20,3 +20,22 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
+
+        var httpRequest = new XMLHttpRequest();
+
+        httpRequest.addEventListener('load', clipsLoaded);
+        httpRequest.open('GET', 'https://api.twitch.tv/kraken/clips/top?limit=1&game=Fortnite&trending=true');
+        httpRequest.setRequestHeader('Client-ID', '4sq1xbwvhlr0nn95o51t91c0pfmajm');
+        httpRequest.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json');
+        httpRequest.send();
+
+        function clipsLoaded() {
+            var clipsDisplay = document.getElementById('clips-display'),
+                clipList = JSON.parse(httpRequest.responseText);
+
+            clipList.clips.forEach(function (clip, index, array) {
+                clipItem = document.createElement('div');
+                clipItem.innerHTML = clip.embed_html;
+                clipsDisplay.appendChild(clipItem);
+            });
+        }
