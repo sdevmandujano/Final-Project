@@ -12,19 +12,13 @@ class Teams extends Component {
         return (
 <div className="content">
 <Grid fluid>
-        <Row>
-            <Col>
-                <Button bsStyle="info" pullRight fill type="submit">
-                    Crear Equipo
-                </Button>
-            </Col>
-        </Row>
+<Row>
+<Button bsStyle="info" pullRight fill type="submit">
+            Crear Equipo
+</Button>
 
-    <Row>   
-        <Col>
-            <TeamTable />
-         </Col>
-    </Row>
+<TeamTable />
+</Row>
 </Grid>
 </div>
         );

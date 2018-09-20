@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import NotificationSystem from "react-notification-system";
 import Footer from "../../components/Footer/Footer";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Nav from "../../components/Nav";
 import { style } from "../../variables/Variables.jsx";
 
 import dashboardRoutes from "../../routes/dashboard.jsx";
