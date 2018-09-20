@@ -1,8 +1,14 @@
 import UserProfile from "../views/UserProfile/UserProfile";
 import TableList from "../views/TableList/TableList";
 import Notifications from "../views/Notifications/Notifications";
-import GamePage from "../views/GamePage";
+import Selection from "../views/Selection";
+import Landing from "../views/Landing";
+import GamePage from "../components/GamePage";
+import userIcon from  "../assets/img/userLogo.svg";
 import Teams from "../views/Teams/Teams";
+import CreateTeam from "../views/CreateTeam/CreateTeam";
+import RatePage from "../views/RatePage/RatePage";
+import { GamePage } from "../views/GamePage/GamePage";
 
 const dashboardRoutes = [
   {
@@ -18,10 +24,10 @@ const dashboardRoutes = [
     component: Teams
   },
   {
-    path: "/user/top",
+    path: "/user/puntajes",
     name: "Puntajes",
     icon: "pe-7s-star",
-    component: TableList
+    component: RatePage
   },
   {
     path: "/user/notificaciones",
