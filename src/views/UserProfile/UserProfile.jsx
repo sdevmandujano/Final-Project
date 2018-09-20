@@ -12,7 +12,6 @@ import {
 import Multiselect from 'react-widgets/lib/Multiselect'
 import { Card } from "../../components/Card/Card.jsx";
 import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
-//import { UserCard } from "../../components/UserCard/UserCard.jsx";
 import Button from "../../components/CustomButton/CustomButton.jsx";
 import 'react-widgets/dist/css/react-widgets.css';
 import API from "../../utils/DatabaseRoutes";
@@ -30,24 +29,38 @@ class UserProfile extends Component {
         Steam:"",
         prefGames: [],
         teams:[],
+        url:null,
+        comments:null,
         _notificationSystem: null
       }
   }
   componentDidMount() {
-    this.loadUser();
+console.log("the user from props " + this.props.user)   
+this.loadUser("5ba28104f6ddc82ada68a2af");
+this.loadGames();
   }
 
-  loadUser = () => {
+  loadUser = (id) => {
     console.log("loading");
-   API.getUser()
-     .then(res =>
-     this.setState({ username: res.data.username}))
+   API.getUser(id)
+     .then(res =>{
+      console.log("response " + this.state.username)
+      this.setState({ username: res.data[0].username,
+      email: res.data[0].email, Steam: res.data[0].steam, twitch: res.data[0].twitch,comments: res.data[0].about, url: res.data[0].url,_notificationSystem: this.state.username});
+      
+     }
+     )
     .catch(err => console.log(err));
   }; 
 
-  loadResults = (res) => {
-    console.log("hello loading results");
-     this.setState({ articlesResult: res.data });
+  loadGames = () => {
+    console.log("Loading Games");
+    API.getGames()
+    .then(res =>{
+    console.log(res.data[0]);
+    }
+    )
+   .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
@@ -66,22 +79,24 @@ class UserProfile extends Component {
 
   };
 
-
+sendMessage(message){
+  this.setState({ _notificationSystem: this.refs.notificationSystem });
+  var _notificationSystem = this.refs.notificationSystem
+  _notificationSystem.addNotification({
+    title: <span data-notify="icon" className="pe-7s-gift" />,
+    message: (
+      <div>
+{          message
+}        </div>
+    ),
+    level: "warning",
+    position: "tr",
+    autoDismiss: 15
+  });   
+}
   notifyClick = () =>{
     console.log("click"); 
-    this.setState({ _notificationSystem: this.refs.notificationSystem });
-    var _notificationSystem = this.refs.notificationSystem;
-    _notificationSystem.addNotification({
-      title: <span data-notify="icon" className="pe-7s-gift" />,
-      message: (
-        <div>
-          Usuario <b>/Yell</b> Actualizado.
-        </div>
-      ),
-      level: "warning",
-      position: "tr",
-      autoDismiss: 15
-    });   
+    this.sendMessage("Usuario Actualizado");
   }
 
   toggleModal = (event) => {
@@ -169,6 +184,8 @@ class UserProfile extends Component {
                           <ControlLabel>Acerca de Mi</ControlLabel>
                           <FormControl
                             rows="5"
+                            value={this.state.comments}
+                            onChange={value =>  this.setState({ comments: value })}
                             componentClass="textarea"
                             bsClass="form-control"
                             placeholder="Here can be your description"
@@ -189,8 +206,7 @@ class UserProfile extends Component {
             <Card
                 title="Avatar"
                 content={
-                  <img src={this.state.preview} alt="Preview" />
-
+                  <img src={this.state.url} alt="Preview" />
                 }
                 />
             </Col>

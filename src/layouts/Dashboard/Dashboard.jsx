@@ -11,20 +11,21 @@ import dashboardRoutes from "../../routes/dashboard.jsx";
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.componentDidMount = this.componentDidMount.bind(this);
+    console.log("passing user " + this.props.user)
     this.state = {
       _notificationSystem: null
     };
   }
   
   componentDidMount() {
+    console.log("passing user" + this.props.user)
     this.setState({ _notificationSystem: this.refs.notificationSystem });
     var _notificationSystem = this.refs.notificationSystem;
     _notificationSystem.addNotification({
       title: <span data-notify="icon" className="pe-7s-gift" />,
       message: (
         <div>
-          Bienvenido a <b>/Yell</b> - esports spot.
+          Bienvenido <b>/Yell</b> - esports spot.
         </div>
       ),
       level: "success",
@@ -32,14 +33,7 @@ class Dashboard extends Component {
       autoDismiss: 15
     });
   }
-  componentDidUpdate(e) {
 
-    if (e.history.action === "PUSH") {
-      document.documentElement.scrollTop = 0;
-      document.scrollingElement.scrollTop = 0;
-      this.refs.mainPanel.scrollTop = 0;
-    }
-  }
   render() {
     return (
       <div className="wrapper">
