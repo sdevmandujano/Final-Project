@@ -12,6 +12,12 @@ import { GamePage } from "../views/GamePage/GamePage";
 const dashboardRoutes = [
   {
     path: "/",
+    name: "Home",
+    icon: "pe-7s-home",
+    component: UserProfile
+  },
+  {
+    path: "/user/profile",
     name: "Perfil",
     icon: "pe-7s-user",
     component: UserProfile
