@@ -1,4 +1,9 @@
-.selectteam div{
-padding: 0px;
-margin:0px
+.container2 {
+  margin: auto;
+  width: 30%;
+}
+
+.gamesgrid {
+  width: 100%;
+  padding: 5%;
 }

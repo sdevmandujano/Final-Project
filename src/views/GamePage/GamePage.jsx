@@ -78,7 +78,7 @@ export class GamePage extends Component {
 <div>
         {this.state.data ? (
           <div
-            className="container"
+            className="mx-auto"
             dangerouslySetInnerHTML={{ __html: this.state.data.embed_html }}
           />
         ) : null}
