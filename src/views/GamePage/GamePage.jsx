@@ -17,6 +17,8 @@ import bubu from "../GamePage/bubudubu.jpg";
 import frosty from "../GamePage/frosty.png";
 import snipedown from "../GamePage/snipedown.jpeg";
 import "../../views/GamePage/Gamepage.css";
+import Jumbotron from "../../components/Jumbotron/Jumbotron";
+import axios from "axios";
 
 export class GamePage extends Component {
     constructor(props, context) {
@@ -38,10 +40,50 @@ export class GamePage extends Component {
         this.setState({ show: true });
       }    
 
+      state = {
+        data: null,
+        top: []
+      };
+    
+      componentDidMount() {
+        this.searchGiphy();
+      }
+    
+      searchGiphy = () => {
+        axios
+          .get(
+            "https://api.twitch.tv/kraken/clips/top?limit=1&game=Fortnite&trending=true",
+            {
+              headers: {
+                "Client-ID": "4sq1xbwvhlr0nn95o51t91c0pfmajm",
+                Accept: "application/vnd.twitchtv.v5+json"
+              }
+            }
+          )
+          .then(result => {
+            console.log(result);
+            this.setState({ data: result.data.clips[0] });
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      };
+
     render() {
         return (
  
 <div className="content">
+
+<Jumbotron>
+<div>
+        {this.state.data ? (
+          <div
+            className="container"
+            dangerouslySetInnerHTML={{ __html: this.state.data.embed_html }}
+          />
+        ) : null}
+      </div>
+</Jumbotron>
 
 <Grid fluid>
       <Row>
