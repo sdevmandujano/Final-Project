@@ -9,6 +9,7 @@ import {
   ControlLabel,
   FormControl
 } from "react-bootstrap";
+import avatar from "../../assets/img/rodolfo.jpg";
 import Multiselect from 'react-widgets/lib/Multiselect'
 import { Card } from "../../components/Card/Card.jsx";
 import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
@@ -214,7 +215,7 @@ sendMessage(message){
             <Card
                 title="Avatar"
                 content={
-                  <img src={this.props.url}  redirect alt="Preview" />
+                  <img src={avatar}  redirect alt="Preview" style={{width: "80%"}}/>
                 }
                 />
             </Col>
