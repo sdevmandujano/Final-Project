@@ -39,6 +39,7 @@ class UserProfile extends Component {
     }
   }
   componentDidMount() {
+    this.loadGames();
 //this.props.email
     API.getUserId(this.props.email).then(res => {
       if (res.data){
@@ -46,8 +47,7 @@ class UserProfile extends Component {
        this.setState({
         user:res.data._id
       });
-        this.loadUser(res.data._id)
-        this.loadGames();
+        this.loadUser()
       }
       else {
         //To set the email from FB when it is a new user
@@ -61,14 +61,11 @@ class UserProfile extends Component {
       }
       
     });
-
-
-
   }
 
 
-  loadUser = (id) => {
-    API.getUser(id)
+  loadUser = () => {
+    API.getUser(this.state.user)
       .then(res => {
         this.setState({
           username: res.data[0].username,
@@ -79,14 +76,32 @@ class UserProfile extends Component {
           url: res.data[0].url,
           _notificationSystem: this.state.username
         });
-
-      }
-      )
+      })
       .catch(err => console.log(err));
+      this.loadFavorites();
   };
 
+loadFavorites =() => {
+  API.getUserFavorites(this.state.user)
+  .then(res => {
+ console.log("This are user favorites: " + res.data);
+ if(res.data){
+   let temp = [];
+   res.data.map(index => {
+     console.log(index.username)
+     console.log(index.favorite)
+     console.log(index._id)
+     temp.push({id:index._id, name: index.favorite })
+    });
+  this.setState({
+    favorite: temp
+  });
+ }
+  })
+  .catch(err => console.log(err));
+}
   loadGames = () => {
-    console.log("Loading Games");
+    console.log("Loading Games for menu");
     API.getGames()
       .then(res => {
         console.log(res.data);
@@ -96,6 +111,7 @@ class UserProfile extends Component {
       }
       )
       .catch(err => console.log(err));
+
   };
 
   handleInputChange = event => {
@@ -120,17 +136,23 @@ class UserProfile extends Component {
       score: 0, 
     })
         .then(res => {
-          this.setState({newUser: false });
-          this.loadUser(res.data._id)
+          this.setState({newUser: false,
+          user:res.data._id  });
+          this.loadUser();
         })
         .catch(err => console.log(err));
+    }else if (!this.state.newUser){
+      API.updateUser(this.state.user, {
+        email: this.state.email,
+        username: this.state.username,
+        about: this.state.about,
+        twitch: this.state.twitch,
+        steam: this.state.steam,
+        url:"https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/" +Math.floor(Math.random()*20)+".png",
+        score: 0, 
+      })
     }
-
-
-
-
-    this.notifyClick();
-
+    this.sendMessage("Usuario Actualizado");
   };
 
   sendMessage(message) {
@@ -148,20 +170,26 @@ class UserProfile extends Component {
       autoDismiss: 15
     });
   }
-  notifyClick = () => {
-    console.log("click");
-    this.sendMessage("Usuario Actualizado");
-  }
+ 
+
   handleFormSubmitFavorites = event => {
     event.preventDefault();
-    let temp = this.state.favorite
-    temp.push(this.state.prefGames)
-    this.setState({
-      favorite: temp
-    });
-    API.saveFavorite(this.state.prefGames.name,this.state.user)
-      .then(res => console.log(res))
+    if(!this.state.favorite.find(x => x.name === this.state.prefGames.name))
+    { 
+       API.saveFavorite(this.state.prefGames.name,this.state.user)
+      .then(res => this.loadFavorites())
        .catch(err => console.log(err));
+      }
+      else{
+        this.sendMessage("Selecciona un Juego diferente")
+      }
+
+  };
+
+  deleteFavorite = id => {
+    API.deleteFavorite(id)
+      .then(res => this.loadFavorites())
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -207,8 +235,8 @@ class UserProfile extends Component {
                           label: "Usuario Steam (Opcional)",
                           onChange: this.handleInputChange,
                           type: "text",
-                          placeholder: "Steam",
-                          value: this.state.Steam,
+                          placeholder: "steam",
+                          value: this.state.steam,
                           name: "steam",
 
                         },
@@ -294,11 +322,11 @@ class UserProfile extends Component {
                       {this.state.favorite.length ? (
                         <List>
                           {this.state.favorite.map(game => (
-                            <ListItem key={game._id}>
+                            <ListItem key={game.id}>
                                 <strong>
                                   {game.name}
                                 </strong>
-                              <DeleteBtn onClick={() => this.deleteFavorite(game._id)} />
+                              <DeleteBtn onClick={() => this.deleteFavorite(game.id)} />
                             </ListItem>
                           ))}
                         </List>
