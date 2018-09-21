@@ -40,7 +40,7 @@ class UserProfile extends Component {
   }
   componentDidMount() {
 //this.props.email
-    API.getUserId("fcamilo5@gmail.com").then(res => {
+    API.getUserId(this.props.email).then(res => {
       if (res.data){
        // If user is in database then load from DB
        this.setState({
@@ -54,7 +54,7 @@ class UserProfile extends Component {
         //is not in dbs
         this.setState({
           newUser: true,
-          email:"fcamilo5@gmail.com",
+          email:this.props.email,
           url:"https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/" +Math.floor(Math.random()*20)+".png"
         });
         console.log(this.state.newUser)
@@ -68,10 +68,8 @@ class UserProfile extends Component {
 
 
   loadUser = (id) => {
-    console.log("loading");
     API.getUser(id)
       .then(res => {
-        console.log("response " + this.state.username)
         this.setState({
           username: res.data[0].username,
           email: res.data[0].email,
