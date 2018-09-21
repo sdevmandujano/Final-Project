@@ -25,7 +25,7 @@ class UserProfile extends Component {
         username: "",
         email: "",
         twitch:"",
-        Ciudad: "",
+        disabled: true,
         Steam:"",
         prefGames: [],
         teams:[],
@@ -134,6 +134,7 @@ sendMessage(message){
                           name:"username",
                           placeholder: "Nombre de Usuario",
                           onChange: this.handleInputChange,
+                         
                         },
                         {
                           label: "Email",
@@ -142,6 +143,7 @@ sendMessage(message){
                           onChange: this.handleInputChange,
                           value:this.state.email,
                           name:"email",
+                          disabled:this.state.disabled
                         }
                       ]}
                     />
@@ -156,6 +158,7 @@ sendMessage(message){
                           placeholder: "Steam",
                           value:this.state.Steam,
                           name:"Steam",
+                       
                         },                        
                         {
                           label: "Usuario Twitch (Opcional)",
@@ -164,6 +167,7 @@ sendMessage(message){
                           onChange: this.handleInputChange,
                           value:this.state.twitch,
                           name:"twitch",
+                          
                         }
                 
                       ]}
