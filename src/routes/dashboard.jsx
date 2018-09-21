@@ -1,14 +1,10 @@
 import UserProfile from "../views/UserProfile/UserProfile";
-import TableList from "../views/TableList/TableList";
 import Notifications from "../views/Notifications/Notifications";
 import Selection from "../views/Selection";
-import Landing from "../views/Landing";
-import GamePage from "../components/GamePage";
-import userIcon from  "../assets/img/userLogo.svg";
 import Teams from "../views/Teams/Teams";
-import CreateTeam from "../views/CreateTeam/CreateTeam";
 import RatePage from "../views/RatePage/RatePage";
 import { GamePage } from "../views/GamePage/GamePage";
+import dashboard from "../components/dashboard/dashboard";
 
 const dashboardRoutes = [
   {
@@ -39,11 +35,7 @@ const dashboardRoutes = [
     path: "/user/juegos",
     name: "Busqueda",
     icon: "pe-7s-search",
-    component: GamePage
-  },
-  {
-    path: "/user/juegos/:id",
-    component: GamePage
+    component: dashboard 
   }
 ];
 
