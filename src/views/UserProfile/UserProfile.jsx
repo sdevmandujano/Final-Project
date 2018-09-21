@@ -9,6 +9,7 @@ import {
   ControlLabel,
   FormControl
 } from "react-bootstrap";
+import avatar from "../../assets/img/rodolfo.jpg";
 import Multiselect from 'react-widgets/lib/Multiselect'
 import { Card } from "../../components/Card/Card.jsx";
 import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
@@ -21,50 +22,63 @@ class UserProfile extends Component {
     super(props)
     this.state = {
       preview: null,
-      isOpen: false ,
-        username: "",
-        email: "",
-        twitch:"",
-        Ciudad: "",
-        Steam:"",
-        prefGames: [],
-        teams:[],
-        url:null,
-        comments:null,
-        _notificationSystem: null
-      }
+      isOpen: false,
+      username: "",
+      email: "",
+      twitch: "",
+      disabled: true,
+      Steam: "",
+      prefGames: [],
+      teams: [],
+      url: null,
+      comments: null,
+      _notificationSystem: null
+    }
   }
   componentDidMount() {
-console.log("the user from props " + this.props.url)   
-API.getUserId(this.props.email).then(res => {
-  console.log(res.data);
-  this.loadUser(res.data._id)
-  this.loadGames();
-})
+    console.log("the user from props " + this.props.url)
+    API.getUserId(this.props.email).then(res => {
+      console.log("if user does not exist: "+res.data);
+      if (res.data){
+       // If user is in database then load from DB
+        this.loadUser(res.data._id)
+        this.loadGames();
+      }
+      else {
+        //To set the email from FB when it is a new user
+        this.setState({email:this.props.email});
+      }
+      
+    });
+
+
 
   }
+
 
   loadUser = (id) => {
     console.log("loading");
-   API.getUser(id)
-     .then(res =>{
-      console.log("response " + this.state.username)
-      this.setState({ username: res.data[0].username,
-      email: res.data[0].email, Steam: res.data[0].steam, twitch: res.data[0].twitch,comments: res.data[0].about, url: res.data[0].url,_notificationSystem: this.state.username});
-      
-     }
-     )
-    .catch(err => console.log(err));
-  }; 
+    API.getUser(id)
+      .then(res => {
+        console.log("response " + this.state.username)
+        this.setState({
+          username: res.data[0].username,
+          email: res.data[0].email, Steam: res.data[0].steam, twitch: res.data[0].twitch, comments: res.data[0].about, url: res.data[0].url, _notificationSystem: this.state.username
+        });
+
+      }
+      )
+      .catch(err => console.log(err));
+  };
 
   loadGames = () => {
     console.log("Loading Games");
     API.getGames()
-    .then(res =>{
-    console.log(res.data[0]);
-    }
-    )
-   .catch(err => console.log(err));
+      .then(res => {
+        console.log(res.data[0]);
+      }
+      )
+      .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
@@ -79,27 +93,44 @@ API.getUserId(this.props.email).then(res => {
   handleFormSubmit = event => {
     console.log("submit form");
     event.preventDefault();
+    if (this.state.username && this.state.about) {
+      API.saveUser({
+      username: this.state.username,
+      email: this.state.email,
+      twitch: this.state.twitch,
+      Steam: this.state.steam,
+      score: 0,
+      about: this.state.comments,
+      url:null
+    })
+        .then(res => this.loadUser(res.data.email))
+        .catch(err => console.log(err));
+    }
+
+
+
+
     this.notifyClick();
 
   };
 
-sendMessage(message){
-  this.setState({ _notificationSystem: this.refs.notificationSystem });
-  var _notificationSystem = this.refs.notificationSystem
-  _notificationSystem.addNotification({
-    title: <span data-notify="icon" className="pe-7s-gift" />,
-    message: (
-      <div>
-{          message
-}        </div>
-    ),
-    level: "warning",
-    position: "tr",
-    autoDismiss: 15
-  });   
-}
-  notifyClick = () =>{
-    console.log("click"); 
+  sendMessage(message) {
+    this.setState({ _notificationSystem: this.refs.notificationSystem });
+    var _notificationSystem = this.refs.notificationSystem
+    _notificationSystem.addNotification({
+      title: <span data-notify="icon" className="pe-7s-gift" />,
+      message: (
+        <div>
+          {message
+          }        </div>
+      ),
+      level: "warning",
+      position: "tr",
+      autoDismiss: 15
+    });
+  }
+  notifyClick = () => {
+    console.log("click");
     this.sendMessage("Usuario Actualizado");
   }
 
@@ -112,11 +143,11 @@ sendMessage(message){
   render() {
 
     let gamesOptions = ['orange', 'red', 'blue', 'purple'];
-    
+
 
     return (
       <div className="content">
-      <NotificationSystem ref="notificationSystem" style={style} />
+        <NotificationSystem ref="notificationSystem" style={style} />
         <Grid fluid>
           <Row>
             <Col md={8}>
@@ -124,60 +155,64 @@ sendMessage(message){
                 title="Edita tu Perfil"
                 content={
                   <form>
-                    <FormInputs 
+                    <FormInputs
                       ncols={["col-md-5", "col-md-5"]}
                       proprieties={[
                         {
                           label: "Nombre de Usuario",
                           type: "text",
-                          value:this.state.username,
-                          name:"username",
+                          value: this.state.username,
+                          name: "username",
                           placeholder: "Nombre de Usuario",
                           onChange: this.handleInputChange,
+
                         },
                         {
                           label: "Email",
                           type: "email",
                           placeholder: "Email",
                           onChange: this.handleInputChange,
-                          value:this.state.email,
-                          name:"email",
+                          value: this.state.email,
+                          name: "email",
+                          disabled: this.state.disabled
                         }
                       ]}
                     />
 
-                    <FormInputs 
-                      ncols={["col-md-4","col-md-4"]}
+                    <FormInputs
+                      ncols={["col-md-4", "col-md-4"]}
                       proprieties={[
                         {
                           label: "Usuario Steam (Opcional)",
                           onChange: this.handleInputChange,
                           type: "text",
                           placeholder: "Steam",
-                          value:this.state.Steam,
-                          name:"Steam",
-                        },                        
+                          value: this.state.Steam,
+                          name: "Steam",
+
+                        },
                         {
                           label: "Usuario Twitch (Opcional)",
                           type: "text",
                           placeholder: "Twitch",
                           onChange: this.handleInputChange,
-                          value:this.state.twitch,
-                          name:"twitch",
+                          value: this.state.twitch,
+                          name: "twitch",
+
                         }
-                
+
                       ]}
                     />
                     <Row>
                       <Col md={12}>
-                      <div>
+                        <div>
                           <ControlLabel>SELECCIONA LOS JUEGOS A ENCONTRAR EQUIPO</ControlLabel>
-                          <Multiselect 
+                          <Multiselect
                             textField="name"
                             data={gamesOptions}
                             value={this.state.prefGames}
-                            onChange={value =>  this.setState({ prefGames: value })}
-                            />
+                            onChange={value => this.setState({ prefGames: value })}
+                          />
                         </div>
                       </Col>
                     </Row>
@@ -189,7 +224,7 @@ sendMessage(message){
                           <FormControl
                             rows="5"
                             value={this.state.comments}
-                            onChange={value =>  this.setState({ comments: value })}
+                            onChange={value => this.setState({ comments: value })}
                             componentClass="textarea"
                             bsClass="form-control"
                             placeholder="Here can be your description"
@@ -207,12 +242,12 @@ sendMessage(message){
               />
             </Col>
             <Col md={4}>
-            <Card
+              <Card
                 title="Avatar"
                 content={
-                  <img src={this.props.url}  redirect alt="Preview" />
+                  <img src={avatar}  redirect alt="Preview" style={{width: "80%"}}/>
                 }
-                />
+              />
             </Col>
           </Row>
         </Grid>

@@ -57,7 +57,7 @@ class SearchResultContainer extends Component {
       <div>
         {this.state.data ? (
           <div
-            className="container"
+            className="container2"
             dangerouslySetInnerHTML={{ __html: this.state.data.embed_html }}
           />
         ) : null}

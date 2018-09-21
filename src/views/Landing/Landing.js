@@ -38,8 +38,6 @@ class Landing extends React.Component {
                       <h5 className="card-title text-center">INICIAR SESIÓN</h5>
                       <hr />
                       <form className="form-signin">
-                        <GoogleLoginApp />
-                        <br/>
                         <Facebook responseFacebook={this.props.responseFacebook}/>
                         <hr />
                         <div className="m-2">

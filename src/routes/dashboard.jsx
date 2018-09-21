@@ -1,9 +1,7 @@
 import UserProfile from "../views/UserProfile/UserProfile";
 import Notifications from "../views/Notifications/Notifications";
-import Selection from "../views/Selection";
 import Teams from "../views/Teams/Teams";
 import RatePage from "../views/RatePage/RatePage";
-import { GamePage } from "../views/GamePage/GamePage";
 import dashboard from "../components/dashboard/dashboard";
 
 const dashboardRoutes = [
