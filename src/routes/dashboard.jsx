@@ -25,7 +25,7 @@ const dashboardRoutes = [
   },
   {
     path: "/user/puntajes",
-    name: "Puntajes",
+    name: "Score",
     icon: "pe-7s-star",
     component: RatePage
   },
@@ -34,12 +34,6 @@ const dashboardRoutes = [
     name: "Mensajes",
     icon: "pe-7s-mail",
     component: Notifications
-  },
-  {
-    path: "/user/juegos",
-    name: "Busqueda",
-    icon: "pe-7s-search",
-    component: dashboard 
   }
 ];
 

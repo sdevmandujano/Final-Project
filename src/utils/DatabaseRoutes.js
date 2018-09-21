@@ -7,10 +7,13 @@ export default {
       return Api().get("/api/team/", idUser);
     },
     saveUser: function(userData) {
-      return Api().post("/api/addUser", userData);
+      return Api().post("/api/createUser", userData);
+    },
+    saveFavorite: function(prefGames,user) {
+      return Api().post("/api/favGame", { username:user, favorite:prefGames});
     },
     getUserId:async function(email) {
-      console.log("get user id" + email);
+      console.log("get user id " + email);
      return Api().get(`/api/email/${email}`);
     },
     getUser:async function(id) {
@@ -25,7 +28,7 @@ export default {
     //Adds a favorite to the table, returns the id 
     addFavorite:async function( userId, gameId) {
       console.log("add Favorite ");
-     return Api().post(`/favGame`, {userId:userId, gameId:gameId});
+     return Api().post(`/api/favGame`, {userId:userId, gameId:gameId});
     },
     //returns all the users that like the same game (pending backend)
     getUserByFav:async function(gameId) {

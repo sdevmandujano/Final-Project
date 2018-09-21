@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NotificationSystem from "react-notification-system";
+import DeleteBtn from "../../components/DeleteBtn";
 import { style } from "../../variables/Variables.jsx";
 import {
   Grid,
@@ -9,10 +10,10 @@ import {
   ControlLabel,
   FormControl
 } from "react-bootstrap";
-import avatar from "../../assets/img/rodolfo.jpg";
-import Multiselect from 'react-widgets/lib/Multiselect'
+import Combobox from 'react-widgets/lib/Combobox'
 import { Card } from "../../components/Card/Card.jsx";
 import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
+import { List, ListItem } from "../../components/List";
 import Button from "../../components/CustomButton/CustomButton.jsx";
 import 'react-widgets/dist/css/react-widgets.css';
 import API from "../../utils/DatabaseRoutes";
@@ -21,32 +22,42 @@ class UserProfile extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      favorite: [],
+      gamesOptions:['orange', 'red', 'blue', 'purple'],
       preview: null,
-      isOpen: false,
+      user:"",
       username: "",
       email: "",
       twitch: "",
       disabled: true,
-      Steam: "",
-      prefGames: [],
-      teams: [],
-      url: null,
-      comments: null,
+      steam: "",
+      prefGames: "",
+      url: "",
+      about: null,
+      newUser: false,
       _notificationSystem: null
     }
   }
   componentDidMount() {
-    console.log("the user from props " + this.props.url)
-    API.getUserId(this.props.email).then(res => {
-      console.log("if user does not exist: "+res.data);
+//this.props.email
+    API.getUserId("fcamilo5@gmail.com").then(res => {
       if (res.data){
        // If user is in database then load from DB
+       this.setState({
+        user:res.data._id
+      });
         this.loadUser(res.data._id)
         this.loadGames();
       }
       else {
         //To set the email from FB when it is a new user
-        this.setState({email:this.props.email});
+        //is not in dbs
+        this.setState({
+          newUser: true,
+          email:"fcamilo5@gmail.com",
+          url:"https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/" +Math.floor(Math.random()*20)+".png"
+        });
+        console.log(this.state.newUser)
       }
       
     });
@@ -63,7 +74,12 @@ class UserProfile extends Component {
         console.log("response " + this.state.username)
         this.setState({
           username: res.data[0].username,
-          email: res.data[0].email, Steam: res.data[0].steam, twitch: res.data[0].twitch, comments: res.data[0].about, url: res.data[0].url, _notificationSystem: this.state.username
+          email: res.data[0].email,
+          steam: res.data[0].steam,
+          twitch: res.data[0].twitch,
+          about: res.data[0].about,
+          url: res.data[0].url,
+          _notificationSystem: this.state.username
         });
 
       }
@@ -75,7 +91,10 @@ class UserProfile extends Component {
     console.log("Loading Games");
     API.getGames()
       .then(res => {
-        console.log(res.data[0]);
+        console.log(res.data);
+        this.setState({
+          gamesOptions: res.data
+        })
       }
       )
       .catch(err => console.log(err));
@@ -86,24 +105,26 @@ class UserProfile extends Component {
     this.setState({
       [name]: value
     });
-    console.log(this.state.email);
 
   };
 
   handleFormSubmit = event => {
     console.log("submit form");
     event.preventDefault();
-    if (this.state.username && this.state.about) {
+    if (this.state.username && this.state.newUser) {
       API.saveUser({
-      username: this.state.username,
       email: this.state.email,
+      username: this.state.username,
+      about: this.state.about,
       twitch: this.state.twitch,
-      Steam: this.state.steam,
-      score: 0,
-      about: this.state.comments,
-      url:null
+      steam: this.state.steam,
+      url:"https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/" +Math.floor(Math.random()*20)+".png",
+      score: 0, 
     })
-        .then(res => this.loadUser(res.data.email))
+        .then(res => {
+          this.setState({newUser: false });
+          this.loadUser(res.data._id)
+        })
         .catch(err => console.log(err));
     }
 
@@ -133,17 +154,19 @@ class UserProfile extends Component {
     console.log("click");
     this.sendMessage("Usuario Actualizado");
   }
-
-  toggleModal = (event) => {
+  handleFormSubmitFavorites = event => {
+    event.preventDefault();
+    let temp = this.state.favorite
+    temp.push(this.state.prefGames)
     this.setState({
-      isOpen: !this.state.isOpen
+      favorite: temp
     });
-  }
+    API.saveFavorite(this.state.prefGames.name,this.state.user)
+      .then(res => console.log(res))
+       .catch(err => console.log(err));
+  };
 
   render() {
-
-    let gamesOptions = ['orange', 'red', 'blue', 'purple'];
-
 
     return (
       <div className="content">
@@ -174,7 +197,7 @@ class UserProfile extends Component {
                           onChange: this.handleInputChange,
                           value: this.state.email,
                           name: "email",
-                          disabled: this.state.disabled
+                          disabled: true
                         }
                       ]}
                     />
@@ -188,7 +211,7 @@ class UserProfile extends Component {
                           type: "text",
                           placeholder: "Steam",
                           value: this.state.Steam,
-                          name: "Steam",
+                          name: "steam",
 
                         },
                         {
@@ -205,15 +228,26 @@ class UserProfile extends Component {
                     />
                     <Row>
                       <Col md={12}>
-                        <div>
-                          <ControlLabel>SELECCIONA LOS JUEGOS A ENCONTRAR EQUIPO</ControlLabel>
-                          <Multiselect
+                      <ControlLabel>SELECCIONA LOS JUEGOS PARA LOS QUE BUSCAS  ENCONTRAR EQUIPO</ControlLabel>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col md={8}>
+                          <Combobox
                             textField="name"
-                            data={gamesOptions}
+                            data={this.state.gamesOptions}
                             value={this.state.prefGames}
                             onChange={value => this.setState({ prefGames: value })}
                           />
-                        </div>
+                      </Col>
+                      <Col md={2}>
+                          <Button
+                          bsStyle="success"
+                          onClick={this.handleFormSubmitFavorites}
+                          fill disabled={this.state.newUser}
+                          >
+                            Agregar
+                          </Button>
                       </Col>
                     </Row>
 
@@ -223,12 +257,12 @@ class UserProfile extends Component {
                           <ControlLabel>Acerca de Mi</ControlLabel>
                           <FormControl
                             rows="5"
-                            value={this.state.comments}
-                            onChange={value => this.setState({ comments: value })}
+                            value={this.state.about}
+                            onChange= {this.handleInputChange}
                             componentClass="textarea"
                             bsClass="form-control"
                             placeholder="Here can be your description"
-                            defaultValue="Soy el mejor gamer de la historia"
+                            defaultValue=""
                           />
                         </FormGroup>
                       </Col>
@@ -242,13 +276,47 @@ class UserProfile extends Component {
               />
             </Col>
             <Col md={4}>
+            <Row>
+              <Col>
               <Card
                 title="Avatar"
                 content={
-                  <img src={avatar}  redirect alt="Preview" style={{width: "80%"}}/>
+                  <img src={this.state.url} style={{width: "80%"}}/>
                 }
               />
-            </Col>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+              <Card
+                title="Buscando equipo en: "
+                content={
+                  <Row>
+                      <Col md={12}>
+                      {this.state.favorite.length ? (
+                        <List>
+                          {this.state.favorite.map(game => (
+                            <ListItem key={game._id}>
+                                <strong>
+                                  {game.name}
+                                </strong>
+                              <DeleteBtn onClick={() => this.deleteFavorite(game._id)} />
+                            </ListItem>
+                          ))}
+                        </List>
+                      ) : (
+                        <h5>No hay favoritos</h5>
+                      )}
+                      </Col>
+                    </Row>
+                }
+              />
+              </Col>
+            </Row>
+
+
+          </Col>
+  
           </Row>
         </Grid>
       </div>
