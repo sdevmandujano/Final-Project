@@ -8,7 +8,7 @@ import dashboard from "../components/dashboard/dashboard";
 
 const dashboardRoutes = [
   {
-    path: "/user/profile",
+    path: "/",
     name: "Perfil",
     icon: "pe-7s-user",
     component: UserProfile

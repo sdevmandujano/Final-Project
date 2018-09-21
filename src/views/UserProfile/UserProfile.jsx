@@ -35,9 +35,13 @@ class UserProfile extends Component {
       }
   }
   componentDidMount() {
-console.log("the user from props " + this.props.user)   
-this.loadUser("5ba28104f6ddc82ada68a2af");
-this.loadGames();
+console.log("the user from props " + this.props.url)   
+API.getUserId(this.props.email).then(res => {
+  console.log(res.data);
+  this.loadUser(res.data._id)
+  this.loadGames();
+})
+
   }
 
   loadUser = (id) => {
@@ -206,7 +210,7 @@ sendMessage(message){
             <Card
                 title="Avatar"
                 content={
-                  <img src={this.state.url} alt="Preview" />
+                  <img src={this.props.url}  redirect alt="Preview" />
                 }
                 />
             </Col>

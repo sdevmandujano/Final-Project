@@ -22,7 +22,7 @@ class App extends Component {
 
   responseFacebook = response => {
     console.log("This is the response from FB: ")
-    console.log(response)
+    console.log(response.picture.data.url)
     this.setState({
         isLoggedIn: true,
         userID: response.userID,
@@ -42,7 +42,7 @@ class App extends Component {
                   <Route 
                     path={prop.path}
                     key={key}
-                    render={(props) => this.state.isLoggedIn ? (<Dashboard {...props} user={this.state.userID} url={this.state.picture}/>) : (<Landing responseFacebook={this.responseFacebook}/>)}/>
+                    render={(props) => this.state.isLoggedIn ? (<Dashboard {...props} email={this.state.email} url={this.state.picture}/>) : (<Landing responseFacebook={this.responseFacebook}/>)}/>
                 );
             })}
           </Switch>
