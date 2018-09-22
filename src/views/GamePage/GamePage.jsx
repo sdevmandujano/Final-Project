@@ -128,6 +128,13 @@ export class GamePage extends Component {
                     Calificacion
                   </span>
                 }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
               />
             </Col>
 
@@ -146,6 +153,13 @@ export class GamePage extends Component {
                     Calificacion
                   </span>
                 }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
               />
             </Col>
 
@@ -163,6 +177,13 @@ export class GamePage extends Component {
                     <br />
                     Calificacion
                   </span>
+                }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
                 }
               />
             </Col>
@@ -185,6 +206,13 @@ export class GamePage extends Component {
                     Calificacion
                   </span>
                 }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
               />
             </Col>
 
@@ -202,6 +230,13 @@ export class GamePage extends Component {
                     <br />
                     Calificacion
                   </span>
+                }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
                 }
               />
             </Col>
@@ -221,6 +256,13 @@ export class GamePage extends Component {
                     Calificacion
                   </span>
                 }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
               />
             </Col>
 
@@ -238,6 +280,13 @@ export class GamePage extends Component {
                     <br />
                     Calificacion
                   </span>
+                }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
                 }
               />
             </Col>          
