@@ -41,10 +41,10 @@ export default class Facebook extends Component {
             fbContent = (
                 <FacebookLogin
                     appId="528083504331828"
-                    autoLoad={true}
+                    autoLoad={false}
                     fields="name,email,picture"
                     callback={this.props.responseFacebook}
-                    cssClass="btn btn-lg btn-facebook-1 btn-block text-uppercase bg-primary text-light"
+                    cssClass="btn btn-lg btn-block text-uppercase bg-primary text-light"
                     icon="fab fa-facebook-f mr-2"
                     textButton="Iniciar sesión con Facebook"
                 />
