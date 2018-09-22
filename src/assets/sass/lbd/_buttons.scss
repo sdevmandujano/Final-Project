@@ -74,9 +74,7 @@
         padding: $padding-base-vertical;
     }
 }
-.btn-lg{
-  
-}
+
 .btn-sm{
     @include btn-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $border-radius-small);    
 }

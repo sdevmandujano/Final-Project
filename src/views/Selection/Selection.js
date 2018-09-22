@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Card } from "../../components/Card/Card.jsx";
+import { Link } from "react-router-dom"
 import "./Selection.css";
 import {
   Grid,
@@ -25,7 +25,7 @@ class Selection extends Component {
   }
 
   openPlayers = () =>{
-    console.log("click on image")
+    
   }
 
   searchGiphy = () => {
@@ -41,7 +41,7 @@ class Selection extends Component {
       )
       .then(result => {
         console.log(result);
-        this.setState({ data: result.data.clips[0] });
+       // this.setState({ data: result.data.clips[0] });
       })
       .catch(error => {
         console.log(error);
@@ -87,7 +87,7 @@ class Selection extends Component {
       <Row>
         <h3>Selecciona un Juego</h3>
       {this.state.top.map(element => {
-      return <Col className="mx-auto" sm="4" md={3}><img className="gamesgrid" onClick={this.openPlayers} src={element.game.box.large} /></Col>;
+      return <Col className="mx-auto" sm="4" md={3}><Link to="/GamePage/GamePage"><img className="gamesgrid"src={element.game.box.large}/></Link></Col>;
       })}
       </Row> 
   </Grid>
