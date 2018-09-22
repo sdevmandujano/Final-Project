@@ -9,6 +9,7 @@ import {
 import { Card } from "../../components/Card/Card.jsx";
 import { UserCard } from "../../components/UserCard/UserCard.jsx";
 import Button from "../../components/CustomButton/CustomButton.jsx";
+import avatar from "../../assets/img/rodolfo.jpg";
 import imagen from "../../assets/img/sidebarback.jpg";
 import 'react-widgets/dist/css/react-widgets.css';
 import API from "../../utils/DatabaseRoutes";
