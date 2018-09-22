@@ -33,7 +33,7 @@ class UserProfile extends Component {
       steam: "",
       prefGames: "",
       url: "",
-      about: null,
+      about: "",
       newUser: false,
       _notificationSystem: null
     }
@@ -143,13 +143,10 @@ loadFavorites =() => {
         .catch(err => console.log(err));
     }else if (!this.state.newUser){
       API.updateUser(this.state.user, {
-        email: this.state.email,
         username: this.state.username,
         about: this.state.about,
         twitch: this.state.twitch,
         steam: this.state.steam,
-        url:"https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/" +Math.floor(Math.random()*20)+".png",
-        score: 0, 
       })
     }
     this.sendMessage("Usuario Actualizado");
@@ -226,8 +223,7 @@ loadFavorites =() => {
                           disabled: true
                         }
                       ]}
-                    />
-
+                    />x
                     <FormInputs
                       ncols={["col-md-4", "col-md-4"]}
                       proprieties={[
@@ -247,9 +243,7 @@ loadFavorites =() => {
                           onChange: this.handleInputChange,
                           value: this.state.twitch,
                           name: "twitch",
-
                         }
-
                       ]}
                     />
                     <Row>
@@ -289,6 +283,7 @@ loadFavorites =() => {
                             bsClass="form-control"
                             placeholder="Here can be your description"
                             defaultValue=""
+                            name= "about"
                           />
                         </FormGroup>
                       </Col>
@@ -339,10 +334,7 @@ loadFavorites =() => {
               />
               </Col>
             </Row>
-
-
           </Col>
-  
           </Row>
         </Grid>
       </div>

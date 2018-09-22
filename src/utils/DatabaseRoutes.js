@@ -34,15 +34,19 @@ export default {
       console.log("get user Favorites ");
      return Api().get(`/api/favUserGames/${id}`);
     },
-
+    //Works
     deleteFavorite:async function(id) {
       console.log("delete from  Favorites ");
      return Api().delete(`/api/favUserGames/${id}`);
     },
+    updateUser:async function(id,userData) {
+      console.log("Update user profile ");
+     return Api().put(`/api/player/${id}`, userData);
+    },
     //returns all the users that like the same game (pending backend)
     getUserByFav:async function(gameId) {
       console.log("getUserFav ");
-     return Api().get(`/players/favorites/${gameId}`)
+     return Api().get(`/api/favoriteGames/${gameId}`)
     },
     //remove a favorite from a particular user (pending backend)
     removeFavorite:async function( userId, gameId) {
