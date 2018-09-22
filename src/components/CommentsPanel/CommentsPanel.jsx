@@ -17,7 +17,7 @@ export class CommentsPanel extends Component {
             prefGames: [],
             teams:[],
             url:null,
-            comments:null,
+            comments: "",
             _notificationSystem: null
           }
       }
@@ -27,8 +27,7 @@ export class CommentsPanel extends Component {
       console.log(res.data);
       this.loadUser(res.data._id)
      
-    })
-    
+    });
       }
     
       loadUser = (id) => {
@@ -49,7 +48,7 @@ export class CommentsPanel extends Component {
             <div>
             <Panel bsStyle="primary">
             <Panel.Heading>
-              <Panel.Title componentClass="h3">Rodolfo opinó <Badge>5</Badge></Panel.Title>
+              <Panel.Title componentClass="h3">{this.state.username} opinó <Badge>5</Badge></Panel.Title>
             </Panel.Heading>
             <Panel.Body>
                 {this.state.comments}

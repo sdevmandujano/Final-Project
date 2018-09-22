@@ -6,7 +6,6 @@ import {
 } from "react-bootstrap";
 import Button from "../../components/CustomButton/CustomButton.jsx";
 import AddRating from "../../views/AddRating/AddRating";
-import API from "../../utils/DatabaseRoutes";
 
 export class RateCard extends Component {
     constructor(props) {
