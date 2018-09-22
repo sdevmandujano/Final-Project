@@ -23,56 +23,79 @@ class RatePage extends Component {
         username: "",
         email: "",
         twitch:"",
-        disabled: true,
+        gamesOptions: [],
         steam:"",
-        prefGames: [],
-        teams:[],
         url:null,
-        comments:null,
+        comments:[],
+        user:"",
         _notificationSystem: null
       }
   }
-  componentDidMount() {
-console.log("the user from props " + this.props.url)   
-API.getUserId(this.props.email).then(res => {
-  console.log(res.data);
-  this.loadUser(res.data._id)
-  this.loadGames();
-})
 
+  sendMessage(message) {
+    this.setState({ _notificationSystem: this.refs.notificationSystem });
+    var _notificationSystem = this.refs.notificationSystem
+    _notificationSystem.addNotification({
+      title: <span data-notify="icon" className="pe-7s-gift" />,
+      message: (
+        <div>
+          {message
+          }        </div>
+      ),
+      level: "danger",
+      position: "tr",
+      autoDismiss: 15
+    });
   }
 
-  loadUser = (id) => {
-    console.log("loading");
-   API.getUser(id)
-     .then(res =>{
-      console.log("response " + this.state.username)
-      this.setState({ username: res.data[0].username, score: res.data[0].score,
-      email: res.data[0].email, steam: res.data[0].steam, twitch: res.data[0].twitch,comments: res.data[0].about, url: res.data[0].url,_notificationSystem: this.state.username});
+  componentDidMount() {
+console.log("the user from props " + this.props.url)   
+    API.getUserId(this.props.email).then(res => {
+      if (res.data){
+       // If user is in database then load from DB
+       this.setState({
+        user:res.data._id
+      });
+        this.loadUser()
+      }
+      else {
+        this.sendMessage("Completa tu perfil antes de iniciar") ;
+      }
       
-     }
-     )
-    .catch(err => console.log(err));
-  }; 
+    });
+  }
+
+  loadUser = () => {
+    API.getUser(this.state.user)
+      .then(res => {
+        this.setState({
+          username: res.data[0].username,
+          score: res.data[0].score,
+          email: res.data[0].email,
+          steam: res.data[0].steam,
+          twitch: res.data[0].twitch,
+          comments: res.data[0].comments,
+          url: res.data[0].url,
+          _notificationSystem: this.state.username
+        });
+      })
+      .catch(err => console.log(err));
+  };
 
   loadGames = () => {
-    console.log("Loading Games");
+    console.log("Loading Games for menu");
     API.getGames()
-    .then(res =>{
-    console.log(res.data[0]);
-    }
-    )
-   .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-    console.log(this.state.email);
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          gamesOptions: res.data
+        })
+      }
+      )
+      .catch(err => console.log(err));
 
   };
+
 
   handleFormSubmit = event => {
     console.log("submit form");
@@ -81,26 +104,8 @@ API.getUserId(this.props.email).then(res => {
 
   };
 
-sendMessage(message){
-  this.setState({ _notificationSystem: this.refs.notificationSystem });
-  var _notificationSystem = this.refs.notificationSystem
-  _notificationSystem.addNotification({
-    title: <span data-notify="icon" className="pe-7s-gift" />,
-    message: (
-      <div>
-{          message
-}        </div>
-    ),
-    level: "warning",
-    position: "tr",
-    autoDismiss: 15
-  });   
-}
-  notifyClick = () =>{
-    console.log("click"); 
-    this.sendMessage("Usuario Actualizado");
-  }
 
+  
     render() {
         return (
 <div className="content">
@@ -110,7 +115,7 @@ sendMessage(message){
     <Card
     title="Calificación"
     content={
-        <RateCard />
+        <RateCard games={this.state.gamesOptions} comments={this.state.comments} score={this.state.score}/>
     }
     />
     </Col>
@@ -118,28 +123,22 @@ sendMessage(message){
     <Col md={6}>
     <UserCard
                 bgImage={imagen}
-                avatar={avatar}
+                avatar={this.state.url}
                 name={this.state.username}
-                userName="Alfawarrior"
-                description={
-                  <span>
-                    {this.state.twitch}
-                    <br />
-                    {this.state.steam}
-                    <br />
-                    {this.state.score}
-                  </span>
+                state="Usuario Activo"
+                steam={
+                  <span> {this.state.steam} </span>
+                }
+                twitch={
+                  <span> {this.state.twitch} </span>
                 }
                 socials={
                   <div>
                     <Button simple>
-                      <i className="fa fa-facebook" />
+                    <i class="fab fa-twitch fa-3x"></i>
                     </Button>
                     <Button simple>
-                      <i className="fa fa-twitter" />
-                    </Button>
-                    <Button simple>
-                      <i className="fa fa-google-plus-square" />
+                    <i class="fab fa-steam fa-3x"></i>
                     </Button>
                   </div>
                 }
@@ -147,12 +146,12 @@ sendMessage(message){
     </Col>
 </Row>
 
-  <Card
-  title="Opiniones"
-  content={
-<CommentsPanel />
-  }
-/>
+    <Card
+        title="Opiniones"
+        content={
+      <CommentsPanel score={this.state.comments}/>
+        }
+      />
 
 </Grid>
 </div>

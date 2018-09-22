@@ -223,7 +223,7 @@ loadFavorites =() => {
                           disabled: true
                         }
                       ]}
-                    />x
+                    />
                     <FormInputs
                       ncols={["col-md-4", "col-md-4"]}
                       proprieties={[
