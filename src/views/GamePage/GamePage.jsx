@@ -148,12 +148,144 @@ export class GamePage extends Component {
                   }
         />
         </Col>
+<<<<<<< HEAD
+
+            <Col md={3}>
+              <UserCard
+                bgImage={imagen}
+                avatar={bubu}
+                name="Bubu dubu"
+                userName="Bubu dubu"
+                description={
+                  <span>
+                    Twitch
+                    <br />
+                    Steam
+                    <br />
+                    Calificacion
+                  </span>
+                }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
+              />
+            </Col>
+
+            <Col md={3}>
+              <UserCard
+                bgImage={imagen}
+                avatar={snipedown}
+                name="Snipedown"
+                userName="Snipedown"
+                description={
+                  <span>
+                    Twitch
+                    <br />
+                    Steam
+                    <br />
+                    Calificacion
+                  </span>
+                }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
+              />
+            </Col>
+
+            <Col md={3}>
+              <UserCard
+                bgImage={imagen}
+                avatar={frosty}
+                name="Frosty"
+                userName="Frosty"
+                description={
+                  <span>
+                    Twitch
+                    <br />
+                    Steam
+                    <br />
+                    Calificacion
+                  </span>
+                }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
+              />
+            </Col>
+=======
+>>>>>>> 254792dd842faf8775449f3674efcaa77cc87bad
       </Row>
 
       <Row>
           <h1>Jugadores</h1>
       <Col md={3}>
+<<<<<<< HEAD
+              <UserCard
+                bgImage={imagen}
+                avatar={shotzzy}
+                name="Shotzzy"
+                userName="Shotzzy"
+                description={
+                  <span>
+                    Twitch
+                    <br />
+                    Steam
+                    <br />
+                    Calificacion
+                  </span>
+                }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
+              />
+            </Col>
+
+            <Col md={3}>
+              <UserCard
+                bgImage={imagen}
+                avatar={bubu}
+                name="Bubu dubu"
+                userName="Bubu dubu"
+                description={
+                  <span>
+                    Twitch
+                    <br />
+                    Steam
+                    <br />
+                    Calificacion
+                  </span>
+                }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
+              />
+            </Col>
+
+            <Col md={3}>
+              <UserCard
+=======
       <UserCard
+>>>>>>> 254792dd842faf8775449f3674efcaa77cc87bad
                 bgImage={imagen}
                 avatar={this.state.url}
                 name={this.state.username}
@@ -161,6 +293,42 @@ export class GamePage extends Component {
                 steam={
                   <span> {this.state.steam} </span>
                 }
+<<<<<<< HEAD
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
+              />
+            </Col>
+
+            <Col md={3}>
+              <UserCard
+                bgImage={imagen}
+                avatar={frosty}
+                name="Frosty"
+                userName="Frosty"
+                description={
+                  <span>
+                    Twitch
+                    <br />
+                    Steam
+                    <br />
+                    Calificacion
+                  </span>
+                }
+                socials={
+                  <div>
+                    <Button simple onClick={this.handleShow}>
+                    Detalles
+                    </Button>
+                  </div>
+                }
+              />
+            </Col>          
+=======
                 twitch={
                   <span> {this.state.twitch} </span>
                 }
@@ -173,6 +341,7 @@ export class GamePage extends Component {
                   }
         />
             </Col>        
+>>>>>>> 254792dd842faf8775449f3674efcaa77cc87bad
       </Row>
 </Grid>
 
