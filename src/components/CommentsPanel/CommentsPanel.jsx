@@ -26,7 +26,7 @@ export class CommentsPanel extends Component {
     API.getUserId(this.props.email).then(res => {
       console.log(res.data);
       this.loadUser(res.data._id)
-      this.loadGames();
+     
     })
     
       }

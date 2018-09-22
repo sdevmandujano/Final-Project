@@ -7,6 +7,8 @@ footer.footer {
   padding-bottom: 4rem;
 }
 .card-signin {
+  margin-top: 100px;
+  padding:10px; 
   border: 0;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
@@ -15,6 +17,14 @@ footer.footer {
    z-index: 1;
     height:500px;
     width: 600px;
+ }
+
+ .jumbotron{
+  width: '60';
+  height: '500px';
+  padding: '10px';
+  border-radius: '20px';
+  background-image: url(https://cdn-images-1.medium.com/max/2000/1*T_7hXP9VnNM8B9TdCFMCiQ.jpeg) no-repeat fixed center;
  }
 
  .containerjumbo{

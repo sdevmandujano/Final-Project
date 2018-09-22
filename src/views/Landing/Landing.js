@@ -11,21 +11,14 @@ class Landing extends React.Component {
   render() {
     return (
       <div>
-        <div style={{
-          width: '60',
-          height: '30',
-          marginRight: '20px',
-          marginLeft: '20px',
-          padding: '1px',
+        <div>
+          <div className="jumbotron text-center" style={{
           borderBottomLeftRadius: '20px',
           borderBottomRightRadius: '20px',
           backgroundImage: 'url("https://cdn-images-1.medium.com/max/2000/1*T_7hXP9VnNM8B9TdCFMCiQ.jpeg")',
           backgroundSize: 'cover',
           backgroundRepeat: "no-repeat"
         }}>
-
-          <Jumbotron className="masthead">
-            <div className="container text-center">
               <div className="row">
                 <div className="col-sm-10 col-md-5 col-lg-6 mx-auto">
                   <div className="align-left">
@@ -38,8 +31,6 @@ class Landing extends React.Component {
                       <h5 className="card-title text-center">INICIAR SESIÓN</h5>
                       <hr />
                       <form className="form-signin">
-                        <GoogleLoginApp />
-                        <br/>
                         <Facebook responseFacebook={this.props.responseFacebook}/>
                         <hr />
                         <div className="m-2">
@@ -51,14 +42,14 @@ class Landing extends React.Component {
                 </div>
               </div>
             </div>
-          </Jumbotron>
+       
         </div>
         <section className="bg-light text-center mx-auto">
-          <div className="container mx-auto mt-3">
-            <div className="row">
+          <div className="container mx-auto pt-5">
+            <div className="row p-3">
               <div className="col-lg-4">
-                <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                  <div className="features-icons-icon mx-auto">
+                <div className="features-icons-item mx-auto">
+                  <div className="features-icons-icon m-2">
                     <i className="fas fa-user-alt fa-4x"></i>
                   </div>
                   <h3>Arma tu perfil</h3>

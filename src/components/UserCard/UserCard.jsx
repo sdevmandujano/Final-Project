@@ -19,11 +19,12 @@ export class UserCard extends Component {
               <h4 className="title">
                 {this.props.name}
                 <br />
-                <small>{this.props.userName}</small>
+                <small>{this.props.state}</small>
               </h4>
             </a>
           </div>
-          <p className="description text-center">{this.props.description}</p>
+          <p className="description text-center">Steam id: {this.props.steam}</p>
+          <p className="description text-center">Twitch id: {this.props.twitch}</p>
         </div>
         <hr />
         <div className="text-center">{this.props.socials}</div>

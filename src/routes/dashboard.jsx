@@ -2,14 +2,14 @@ import UserProfile from "../views/UserProfile/UserProfile";
 import Notifications from "../views/Notifications/Notifications";
 import Teams from "../views/Teams/Teams";
 import RatePage from "../views/RatePage/RatePage";
-import dashboard from "../components/dashboard/dashboard";
+import Selection from "../views/Selection";
 
 const dashboardRoutes = [
   {
     path: "/",
     name: "Home",
     icon: "pe-7s-home",
-    component: dashboard
+    component: Selection
   },
   {
     path: "/user/profile",
@@ -25,7 +25,7 @@ const dashboardRoutes = [
   },
   {
     path: "/user/puntajes",
-    name: "Puntajes",
+    name: "Score",
     icon: "pe-7s-star",
     component: RatePage
   },
@@ -34,12 +34,6 @@ const dashboardRoutes = [
     name: "Mensajes",
     icon: "pe-7s-mail",
     component: Notifications
-  },
-  {
-    path: "/user/juegos",
-    name: "Busqueda",
-    icon: "pe-7s-search",
-    component: dashboard 
   }
 ];
 
